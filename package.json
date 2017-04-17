@@ -27,6 +27,7 @@
     "history": "^4.6.1",
     "isomorphic-style-loader": "^1.1.0",
     "jsonwebtoken": "^7.3.0",
+    "materialize-css": "^0.98.2",
     "node-fetch": "^1.6.3",
     "normalize.css": "^6.0.0",
     "passport": "^0.3.2",

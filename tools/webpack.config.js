@@ -94,6 +94,7 @@ const config = {
               // CSS Nano http://cssnano.co/options/
               minimize: !isDebug,
               discardComments: { removeAll: true },
+              camelCase: true,
             },
           },
           {
