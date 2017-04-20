@@ -21,7 +21,7 @@ class Footer extends React.Component {
   render() {
 
     return (
-      <footer className={classnames(sm.pageFooter,sm.blueGrey,sm.darken2)} >
+      <footer className={classnames(sm.pageFooter,sm.blueGrey,sm.darken4)} >
           <div className={sm.container}>
             <div className={sm.row}>
               <div className={classnames(sm.col,sm.l4,sm.s12)}>
