@@ -12,7 +12,7 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Header.css';
 import Link from '../Link';
 import Navigation from '../Navigation';
-import logoUrl from './home-banner-world.png'
+import logoUrl from './bdome.png'
 
 class Header extends React.Component {
   render() {
@@ -21,11 +21,12 @@ class Header extends React.Component {
       <Navigation />
         <div className={s.container}>
           <Link className={s.brand} to="/">
-            <span className={s.brandTxt}>BITS Pilani</span>
+            <span className={s.brandTxt}>BITS Pilani, Goa</span>
           </Link>
           
           <div className={s.banner}>
-          <img src={logoUrl} style={{marginLeft:10}} alt="SWD" />
+          <div style={{height:70}}></div>
+          <img src={logoUrl} style={{maxWidth:"80%"}} alt="SWD" />
             <h1 className={s.bannerTitle}>SWD</h1>
             <p className={s.bannerDesc}>Student Welfare Division</p>
           </div>

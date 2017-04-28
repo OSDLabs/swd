@@ -24,11 +24,11 @@ class Navigation extends React.Component {
     return (
       <nav className={classnames(sm.blueGrey,sm.lighten5)}>
       <div className={classnames(sm.navWrapper)}>
-      <a href="#!" className={sm.brandLogo, sm.tealText}><img src={logoUrl} width="60" height="60" style={{padding:10}} alt="SWD" />Student Welfare Division</a>
+      <a href="/" className={sm.brandLogo, sm.tealText}><img src={logoUrl} width="60" height="60" style={{padding:10}} alt="SWD" />Student Welfare Division</a>
       <ul id={sm.navMobile} className={classnames(sm.right,sm.hideOnMedAndDown)}>
-        <li><a href="#!" className={classnames(sm.tealText)}>Lorem</a></li>
-        <li><a href="#!" className={classnames(sm.tealText)}>Ipsum</a></li>
-        <li><a href="#!" className={classnames(sm.tealText)}>Login</a></li>
+        <li><a href="#!" className={classnames(sm.tealText)}>Contact Us</a></li>
+        <li><a href="#!" className={classnames(sm.tealText)}>Student Search</a></li>
+        <li><a href="login" className={classnames(sm.tealText)}>Login</a></li>
       </ul>
     </div>
   </nav>
