@@ -18,12 +18,12 @@ class Header extends React.Component {
   render() {
     return (
       <div className={s.root}>
-      <Navigation />
+        <Navigation />
         <div className={s.container}>
           <Link className={s.brand} to="/">
             <span className={s.brandTxt}>BITS Pilani, Goa</span>
           </Link>
-          
+
           <div className={s.banner}>
           <div style={{height:70}}></div>
           <img src={logoUrl} style={{maxWidth:"80%"}} alt="SWD" />
