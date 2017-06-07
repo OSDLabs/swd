@@ -28,6 +28,7 @@
     "isomorphic-style-loader": "^1.1.0",
     "jsonwebtoken": "^7.3.0",
     "materialize-css": "^0.98.2",
+    "mysql": "^2.13.0",
     "node-fetch": "^1.6.3",
     "normalize.css": "^6.0.0",
     "passport": "^0.3.2",
@@ -139,8 +140,7 @@
     "extends": [
       "airbnb"
     ],
-    "plugins": [
-    ],
+    "plugins": [],
     "globals": {
       "__DEV__": true
     },
