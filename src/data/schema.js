@@ -12,14 +12,14 @@ import {
   GraphQLObjectType as ObjectType,
 } from 'graphql';
 
-import me from './queries/me';
+import student from './queries/student';
 import news from './queries/news';
 
 const schema = new Schema({
   query: new ObjectType({
     name: 'Query',
     fields: {
-      me,
+      student,
       news,
     },
   }),
