@@ -139,8 +139,7 @@
     "extends": [
       "airbnb"
     ],
-    "plugins": [
-    ],
+    "plugins": [],
     "globals": {
       "__DEV__": true
     },
