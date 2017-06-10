@@ -24,4 +24,6 @@
       shell: yarn install
 
     - name: install sqlite3
-      shell: npm install sqlite3
+      npm:
+        name: sqlite3
+        path: /home/vagrant/swd/
