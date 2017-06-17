@@ -1,9 +1,18 @@
 ---
 - hosts: all
   become: true
+  vars:
+     mysql_swd_password: swd_base
   tasks:
+
+    - name: 'check bash setup'
+      shell: grep -Fxq "PS1='\[\e[0;31m\]\u\[\e[m\] \[\e[1;34m\]\w\[\e[m\] $ '" /home/vagrant/.bashrc
+      register: ps
+      ignore_errors: true
+
     - name: set up bash
       shell: bash vagrant_support/install.sh
+      when: ps|failed
 
     - name: install epel-release
       yum: name=epel-release state=present
@@ -23,7 +32,52 @@
     - name: install swd dependencies
       shell: yarn install
 
-    - name: install sqlite3
-      npm:
-        name: sqlite3
-        path: /home/vagrant/swd/
+    - name: install mariadb
+      yum:
+        name: mariadb-server
+        state: present
+
+    - name: install the python mysql support libraries
+      yum: pkg=MySQL-python state=latest
+    
+    - name: start mariadb server and enable it on reboot
+      service: name=mariadb state=started enabled=true
+
+    - name: update mariadb root user
+      mysql_user:
+        name: root
+        host: localhost
+        password: "{{ mysql_swd_password }}"
+        login_user: root
+        login_password: "{{ mysql_swd_password }}"
+        check_implicit_admin: yes
+        priv: "*.*:ALL,GRANT"
+
+    - name: copy the root credentials as .my.cnf file
+      template:
+        src: vagrant_support/root.cnf.j2 
+        dest: ~/.my.cnf
+        mode: 0600
+
+    - name: restarting mariadb
+      service:
+        name: mariadb
+        state: restarted
+
+    - name: update mariadb swd user
+      mysql_user:
+        name: swd
+        host: localhost
+        password: "{{ mysql_swd_password }}"
+        login_user: root
+        login_password: "{{ mysql_swd_password }}"
+        priv: "*.*:ALL,GRANT"
+
+    - name: 'check for db_swd (failure is ok)'
+      shell: mysql -u "swd" --password="{{ mysql_swd_password }}" -e "show databases" | grep db_swd
+      register: db_swd
+      ignore_errors: true
+
+    - name: create a db_swd database
+      mysql_db: name=db_swd state=present login_user=swd login_password="{{ mysql_swd_password }}"
+      when: db_swd|failed
