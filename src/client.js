@@ -11,11 +11,20 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import FastClick from 'fastclick';
 import queryString from 'query-string';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 import { createPath } from 'history/PathUtils';
 import history from './core/history';
 import App from './components/App';
 import { updateMeta } from './core/DOMUtils';
 import { ErrorReporter, deepForceUpdate } from './core/devUtils';
+
+// react-tap-event-plugin provides onTouchTap() to all React Components.
+// It's a mobile-friendly onClick() alternative for components in Material-UI,
+// especially useful for the buttons.
+
+injectTapEventPlugin();
+
 
 /* eslint-disable global-require */
 
@@ -122,7 +131,12 @@ async function onLocationChange(location, action) {
     }
 
     appInstance = ReactDOM.render(
-      <App context={context}>{route.component}</App>,
+      <App context={context}>
+        <MuiThemeProvider>
+          {/* Injecting Material-UI theme into application context*/}
+          {route.component}
+        </MuiThemeProvider>
+      </App>,
       container,
       () => onRenderComplete(route, location),
     );
