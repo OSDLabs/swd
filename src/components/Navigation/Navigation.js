@@ -16,20 +16,43 @@ import sm from 'materialize-css/bin/materialize.css';
 // Import custom navigation styles
 import s from './Navigation.css';
 import logoUrl from './logo-small.png';
+import LoginModal from './LoginModal';
+
 
 class Navigation extends React.Component {
+
+  state = {
+    loginModalOpen: false,
+  };
+
+  handleLoginOpen = () => {
+    this.setState({ loginModalOpen: true });
+  };
+
+  handleLoginClose = () => {
+    this.setState({ loginModalOpen: false });
+  };
+
   render() {
     return (
-      <nav className={classnames(sm.blueGrey, sm.lighten5)}>
-        <div className={classnames(sm.navWrapper)}>
-          <a href="/" className={classnames(sm.brandLogo, sm.tealText)}><img src={logoUrl} width="60" height="60" style={{ padding: 10 }} alt="SWD" />Student Welfare Division</a>
-          <ul id={sm.navMobile} className={classnames(sm.right, sm.hideOnMedAndDown)}>
-            <li><a href="#!" className={classnames(sm.tealText)}>Contact Us</a></li>
-            <li><a href="#!" className={classnames(sm.tealText)}>Student Search</a></li>
-            <li><a href="#!" className={classnames(sm.tealText)}>Login</a></li>
-          </ul>
-        </div>
-      </nav>
+      <div>
+        <nav className={classnames(sm.blueGrey, sm.lighten5)}>
+          <div className={classnames(sm.navWrapper)}>
+            <a href="/" className={classnames(sm.brandLogo, sm.tealText)}><img src={logoUrl} width="60" height="60" style={{ padding: 10 }} alt="SWD" />Student Welfare Division</a>
+            <ul id={sm.navMobile} className={classnames(sm.right, sm.hideOnMedAndDown)}>
+              <li><a href="#!" className={classnames(sm.tealText)}>Contact Us</a></li>
+              <li><a href="#!" className={classnames(sm.tealText)}>Student Search</a></li>
+              <li>
+                <a onTouchTap={this.handleLoginOpen} className={classnames(sm.tealText)}>Login</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <LoginModal
+          open={this.state.loginModalOpen}
+          onRequestClose={this.handleLoginClose}
+        />
+      </div>
     );
   }
 }

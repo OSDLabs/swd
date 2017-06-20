@@ -17,6 +17,8 @@ import jwt from 'jsonwebtoken';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
 import PrettyError from 'pretty-error';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 import App from './components/App';
 import Html from './components/Html';
 import { ErrorPageWithoutStyle } from './routes/error/ErrorPage';
@@ -28,8 +30,14 @@ import schema from './data/schema';
 import assets from './assets.json'; // eslint-disable-line import/no-unresolved
 import { port, auth } from './config';
 
+
 const app = express();
 
+
+// react-tap-event-plugin provides onTouchTap() to all React Components.
+// It's a mobile-friendly onClick() alternative for components in Material-UI,
+// especially useful for the buttons.
+injectTapEventPlugin();
 //
 // Tell any CSS tooling (such as Material UI) to use all vendor prefixes if the
 // user agent is not known.
@@ -110,7 +118,10 @@ app.get('*', async (req, res, next) => {
     }
 
     const data = { ...route };
-    data.children = ReactDOM.renderToString(<App context={context}>{route.component}</App>);
+    data.children = ReactDOM.renderToString(
+
+      <App context={context}><MuiThemeProvider>{route.component}</MuiThemeProvider></App>,
+    );
     data.styles = [
       { id: 'css', cssText: [...css].join('') },
     ];
