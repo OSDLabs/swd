@@ -5,7 +5,7 @@ import Model from '../sequelize';
 
 const CSA = Model.define('csa', {
   id: {
-      type: DataTypes.STRING(30),
+      type: DataTypes.INTEGER(11).UNSIGNED,
       allowNull: false,
       autoIncrement: true,
       primaryKey: true
