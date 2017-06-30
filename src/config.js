@@ -16,7 +16,7 @@ export const databaseConfig = {
   databasename: 'db_swd',
   host: 'localhost',
   user: 'swd',
-  password: 'swd_base'
+  password: 'swd_base',
 };
 
 

@@ -1,66 +1,66 @@
 /* jshint indent: 2 */
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   return sequelize.define('products', {
     id: {
       type: DataTypes.BIGINT,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
     },
     login_id: {
       type: DataTypes.STRING(12),
-      allowNull: false
+      allowNull: false,
     },
     studentId: {
       type: DataTypes.STRING(12),
-      allowNull: false
+      allowNull: false,
     },
     hostel: {
       type: DataTypes.STRING(5),
-      allowNull: true
+      allowNull: true,
     },
     room: {
       type: DataTypes.STRING(5),
-      allowNull: true
+      allowNull: true,
     },
     name: {
       type: DataTypes.STRING(50),
-      allowNull: false
+      allowNull: false,
     },
     title: {
       type: DataTypes.STRING(50),
-      allowNull: false
+      allowNull: false,
     },
     product: {
       type: DataTypes.STRING(50),
-      allowNull: false
+      allowNull: false,
     },
     nick: {
       type: DataTypes.STRING(100),
-      allowNull: true
+      allowNull: true,
     },
     S: {
       type: DataTypes.INTEGER(50),
-      allowNull: true
+      allowNull: true,
     },
     M: {
       type: DataTypes.INTEGER(50),
-      allowNull: true
+      allowNull: true,
     },
     L: {
       type: DataTypes.INTEGER(50),
-      allowNull: true
+      allowNull: true,
     },
     XL: {
       type: DataTypes.INTEGER(50),
-      allowNull: true
+      allowNull: true,
     },
     XXL: {
       type: DataTypes.INTEGER(50),
-      allowNull: true
-    }
+      allowNull: true,
+    },
   }, {
-    tableName: 'products'
+    tableName: 'products',
   });
 };

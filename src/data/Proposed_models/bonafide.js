@@ -1,45 +1,45 @@
 /* jshint indent: 2 */
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   return sequelize.define('bonafide', {
     login_id: {
       type: DataTypes.STRING(20),
-      allowNull: false
+      allowNull: false,
     },
     reason: {
       type: DataTypes.TEXT,
-      allowNull: true
+      allowNull: true,
     },
     printed: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      defaultValue: '0'
+      defaultValue: '0',
     },
     index_: {
       type: DataTypes.INTEGER(10).UNSIGNED,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
     },
     req_date: {
       type: DataTypes.BIGINT,
-      allowNull: false
+      allowNull: false,
     },
     other_reason: {
       type: DataTypes.TEXT,
-      allowNull: true
+      allowNull: true,
     },
     year: {
       type: DataTypes.STRING(10),
       allowNull: false,
-      defaultValue: ''
+      defaultValue: '',
     },
     gender: {
       type: DataTypes.STRING(10),
       allowNull: false,
-      defaultValue: ''
-    }
+      defaultValue: '',
+    },
   }, {
-    tableName: 'bonafide'
+    tableName: 'bonafide',
   });
 };

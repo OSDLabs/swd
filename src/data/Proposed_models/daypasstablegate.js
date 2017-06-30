@@ -1,29 +1,29 @@
 /* jshint indent: 2 */
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   return sequelize.define('daypasstablegate', {
     daypass_id: {
       type: DataTypes.STRING(100),
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
     },
     ID: {
       type: DataTypes.STRING(12),
-      allowNull: true
+      allowNull: true,
     },
     Name: {
       type: DataTypes.STRING(100),
-      allowNull: true
+      allowNull: true,
     },
     DayPassDate: {
       type: DataTypes.DATE,
-      allowNull: true
+      allowNull: true,
     },
     DayPassApproved: {
       type: DataTypes.INTEGER(1),
-      allowNull: true
-    }
+      allowNull: true,
+    },
   }, {
-    tableName: 'daypasstablegate'
+    tableName: 'daypasstablegate',
   });
 };

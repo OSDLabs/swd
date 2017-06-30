@@ -1,33 +1,33 @@
 /* jshint indent: 2 */
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   return sequelize.define('leavetablegate', {
     leave_id: {
       type: DataTypes.STRING(100),
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
     },
     ID: {
       type: DataTypes.STRING(12),
-      allowNull: true
+      allowNull: true,
     },
     Name: {
       type: DataTypes.STRING(100),
-      allowNull: true
+      allowNull: true,
     },
     LeaveStart: {
       type: DataTypes.DATE,
-      allowNull: true
+      allowNull: true,
     },
     LeaveEnd: {
       type: DataTypes.DATE,
-      allowNull: true
+      allowNull: true,
     },
     LeaveApproved: {
       type: DataTypes.INTEGER(1),
-      allowNull: true
-    }
+      allowNull: true,
+    },
   }, {
-    tableName: 'leavetablegate'
+    tableName: 'leavetablegate',
   });
 };

@@ -1,18 +1,18 @@
 /* jshint indent: 2 */
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   return sequelize.define('mess_option_future', {
     login_id: {
       type: DataTypes.STRING(50),
       allowNull: false,
-      defaultValue: ''
+      defaultValue: '',
     },
     mess: {
       type: DataTypes.STRING(20),
       allowNull: false,
-      defaultValue: ''
-    }
+      defaultValue: '',
+    },
   }, {
-    tableName: 'mess_option_future'
+    tableName: 'mess_option_future',
   });
 };
