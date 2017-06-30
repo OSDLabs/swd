@@ -1,20 +1,20 @@
 /* jshint indent: 2 */
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   return sequelize.define('cgpa_view', {
     id: {
       type: DataTypes.STRING(12),
-      allowNull: false
+      allowNull: false,
     },
     student_name: {
       type: DataTypes.TEXT,
-      allowNull: true
+      allowNull: true,
     },
     cgpa: {
       type: DataTypes.INTEGER(10),
-      allowNull: true
-    }
+      allowNull: true,
+    },
   }, {
-    tableName: 'cgpa_view'
+    tableName: 'cgpa_view',
   });
 };

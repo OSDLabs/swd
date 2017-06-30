@@ -1,29 +1,29 @@
 /* jshint indent: 2 */
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   return sequelize.define('latecomers', {
     id: {
       type: DataTypes.INTEGER(11).UNSIGNED,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
     },
     date: {
       type: DataTypes.STRING(20),
       allowNull: false,
-      defaultValue: ''
+      defaultValue: '',
     },
     time: {
       type: DataTypes.STRING(20),
       allowNull: false,
-      defaultValue: ''
+      defaultValue: '',
     },
     login_id: {
       type: DataTypes.STRING(50),
       allowNull: false,
-      defaultValue: ''
-    }
+      defaultValue: '',
+    },
   }, {
-    tableName: 'latecomers'
+    tableName: 'latecomers',
   });
 };

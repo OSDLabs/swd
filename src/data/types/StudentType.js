@@ -15,11 +15,11 @@ import {
 } from 'graphql';
 
 const HostelType = new ObjectType({
-	name: 'Hostel',
-	fields: {
-		hostelName: {type:StringType},
-		hostelRoom: {type:StringType}
-	}
+  name: 'Hostel',
+  fields: {
+    hostelName: { type: StringType },
+    hostelRoom: { type: StringType },
+  },
 });
 
 const StudentType = new ObjectType({
@@ -28,9 +28,9 @@ const StudentType = new ObjectType({
     id: { type: StringType },
     loginID: { type: new NonNull(ID) },
     name: { type: new NonNull(StringType) },
-    gender: {type: StringType },
-    hostel: {type: HostelType},
-    admit: {type: StringType}
+    gender: { type: StringType },
+    hostel: { type: HostelType },
+    admit: { type: StringType },
   },
 });
 

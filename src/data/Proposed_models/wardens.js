@@ -1,35 +1,35 @@
 /* jshint indent: 2 */
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   return sequelize.define('wardens', {
     login_id: {
       type: DataTypes.STRING(30),
       allowNull: false,
-      defaultValue: ''
+      defaultValue: '',
     },
     hostel: {
       type: DataTypes.STRING(5),
       allowNull: false,
-      defaultValue: ''
+      defaultValue: '',
     },
     name: {
       type: DataTypes.STRING(50),
       allowNull: false,
-      defaultValue: ''
+      defaultValue: '',
     },
     chamber: {
       type: DataTypes.STRING(10),
-      allowNull: true
+      allowNull: true,
     },
     office: {
       type: DataTypes.STRING(20),
-      allowNull: true
+      allowNull: true,
     },
     residence: {
       type: DataTypes.STRING(20),
-      allowNull: true
-    }
+      allowNull: true,
+    },
   }, {
-    tableName: 'wardens'
+    tableName: 'wardens',
   });
 };

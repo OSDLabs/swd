@@ -1,288 +1,288 @@
 /* jshint indent: 2 */
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   return sequelize.define('student_dues', {
     IDNO: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     NAME: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Advance: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     July16_Mess: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Aug16_Mess_Bill: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Medical_Dues: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Late_comer_charges: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Insurance: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     During_Placement_IT_training_hostel_Charges: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Pre_Waves_Dance_Workshop: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     PSI_Summer_Term_Accomodation_Charges: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     French_Course: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Music_Course: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     SAE_Club_Tshirt: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     IEEE_Pass: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     IEEE_Tshirt: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Coalesence_Workshop: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Coalesence_Conference: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Coalesence_Tshirts: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Bitsaa_Summit: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Sept_Mess_Bill: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Sept_Medical_Dues: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Late_Comer_charges_Sept: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     DupID_Aug: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     DupID_Sept: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     VGR_Sept: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Abhigyan_Tshirts: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Ganesh_Chaturthi_Contribn: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Quark_workshop: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Scrutiny: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     sursangam: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Waves_Comedy_Nites: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Zephyr_Tess: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Oct16_Mess_Bill: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Med_Dues_Oct: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Late_Comer_charges_Oct: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     DupID_Oct: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Oct_VGR: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     SemII_15_16_short_paid: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Chemical_Tshirts: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     EEE_Tshirts: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     EandI_Tshirts: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     EEE_Hoodies: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     JOGW: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Waves_DOCW: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Waves_Nites: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Waves_Tshirts: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Punjabi_Contribtn: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Festival_Contribtn: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Bits_Alumni: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Nov_Mess_Bill: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Nov_Medical_Dues: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     DupId_Nov: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     VGR_Nov: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     MESA_TSHIRT: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     DURGA_PUJA_COLLECTION: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Dec_Mess_Bill: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Dec_Medical_Dues: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     DupId_Dec: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Late_comers_Dec: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Chemistry_Lab_Dues: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Library_dues: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Physics_Hoodie: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Physics_Dinner: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Workshop_Dues: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Assoc_Fees: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Hostel_Damages: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Total_Dues: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     Balance_Amount: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: true,
     },
     login_id: {
       type: DataTypes.STRING(50),
-      allowNull: true
-    }
+      allowNull: true,
+    },
   }, {
-    tableName: 'student_dues'
+    tableName: 'student_dues',
   });
 };

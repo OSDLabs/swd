@@ -1,12 +1,12 @@
 /* jshint indent: 2 */
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   return sequelize.define('institure_holidays', {
     date: {
       type: DataTypes.BIGINT,
-      allowNull: false
-    }
+      allowNull: false,
+    },
   }, {
-    tableName: 'institure_holidays'
+    tableName: 'institure_holidays',
   });
 };

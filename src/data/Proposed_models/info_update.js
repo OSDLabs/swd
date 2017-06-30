@@ -1,36 +1,36 @@
 /* jshint indent: 2 */
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   return sequelize.define('info_update', {
     id: {
       type: DataTypes.INTEGER(11).UNSIGNED,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
     },
     login_id: {
       type: DataTypes.STRING(50),
       allowNull: false,
-      defaultValue: ''
+      defaultValue: '',
     },
     type: {
       type: DataTypes.STRING(10),
       allowNull: false,
-      defaultValue: ''
+      defaultValue: '',
     },
     phone: {
       type: DataTypes.STRING(20),
-      allowNull: true
+      allowNull: true,
     },
     address: {
       type: DataTypes.TEXT,
-      allowNull: true
+      allowNull: true,
     },
     email: {
       type: DataTypes.STRING(100),
-      allowNull: true
-    }
+      allowNull: true,
+    },
   }, {
-    tableName: 'info_update'
+    tableName: 'info_update',
   });
 };

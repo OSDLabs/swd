@@ -1,57 +1,57 @@
 /* jshint indent: 2 */
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   return sequelize.define('leave_requests', {
     leave_id: {
       type: DataTypes.INTEGER(11).UNSIGNED,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
     },
     login_id: {
       type: DataTypes.STRING(50),
       allowNull: false,
-      defaultValue: ''
+      defaultValue: '',
     },
     start_date: {
       type: DataTypes.DATE,
-      allowNull: false
+      allowNull: false,
     },
     end_date: {
       type: DataTypes.DATE,
-      allowNull: false
+      allowNull: false,
     },
     phone: {
       type: DataTypes.STRING(20),
       allowNull: false,
-      defaultValue: ''
+      defaultValue: '',
     },
     consent_type: {
       type: DataTypes.STRING(20),
       allowNull: false,
-      defaultValue: ''
+      defaultValue: '',
     },
     address: {
       type: DataTypes.TEXT,
-      allowNull: false
+      allowNull: false,
     },
     reason: {
       type: DataTypes.TEXT,
-      allowNull: false
+      allowNull: false,
     },
     approved_by: {
       type: DataTypes.STRING(50),
-      allowNull: true
+      allowNull: true,
     },
     approved: {
       type: DataTypes.INTEGER(1).UNSIGNED,
-      allowNull: true
+      allowNull: true,
     },
     comment: {
       type: DataTypes.TEXT,
-      allowNull: true
-    }
+      allowNull: true,
+    },
   }, {
-    tableName: 'leave_requests'
+    tableName: 'leave_requests',
   });
 };

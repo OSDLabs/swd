@@ -10,10 +10,11 @@
 import Sequelize from 'sequelize';
 import { databaseConfig } from '../config';
 
-const sequelize = new Sequelize(databaseConfig.databasename,databaseConfig.user,databaseConfig.password, {
-  define: {
-    freezeTableName: true,
-  },
-});
+const sequelize = new Sequelize(databaseConfig.databasename, databaseConfig.user,
+    databaseConfig.password, {
+      define: {
+        freezeTableName: true,
+      },
+    });
 
 export default sequelize;
