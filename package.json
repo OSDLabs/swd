@@ -151,7 +151,9 @@
       "import/extensions": "off",
       "import/no-extraneous-dependencies": "off",
       "react/jsx-filename-extension": "off",
-      "react/prefer-stateless-function": "off"
+      "react/prefer-stateless-function": "off",
+      "camelcase": "warn",
+      "func-names": "warn"
     }
   },
   "stylelint": {
