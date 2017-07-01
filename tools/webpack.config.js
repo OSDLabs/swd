@@ -38,6 +38,7 @@ const config = {
         loader: 'babel-loader',
         include: [
           path.resolve(__dirname, '../src'),
+          path.resolve(__dirname, '..', 'node_modules', 'apollo-client'),
         ],
         query: {
           // https://github.com/babel/babel-loader#options

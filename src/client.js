@@ -7,6 +7,7 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
+import 'isomorphic-fetch';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import FastClick from 'fastclick';
@@ -18,7 +19,11 @@ import history from './core/history';
 import App from './components/App';
 import { updateMeta } from './core/DOMUtils';
 import { ErrorReporter, deepForceUpdate } from './core/devUtils';
-
+import {
+    ApolloClient,
+    ApolloProvider,
+    createNetworkInterface,
+} from 'react-apollo';
 // react-tap-event-plugin provides onTouchTap() to all React Components.
 // It's a mobile-friendly onClick() alternative for components in Material-UI,
 // especially useful for the buttons.
@@ -27,6 +32,13 @@ injectTapEventPlugin();
 
 
 /* eslint-disable global-require */
+
+const client = new ApolloClient({
+  ssrMode: true, // serverside rendering
+  networkInterface: createNetworkInterface({
+    uri: 'http://localhost:3001/graphql',
+  }),
+});
 
 // Global (context) variables that can be easily accessed from any React component
 // https://facebook.github.io/react/docs/context.html
@@ -38,6 +50,7 @@ const context = {
     const removeCss = styles.map(x => x._insertCss());
     return () => { removeCss.forEach(f => f()); };
   },
+
 };
 
 // Switch off the native scroll restoration behavior and handle it manually
@@ -132,10 +145,13 @@ async function onLocationChange(location, action) {
 
     appInstance = ReactDOM.render(
       <App context={context}>
-        <MuiThemeProvider>
-          {/* Injecting Material-UI theme into application context*/}
-          {route.component}
-        </MuiThemeProvider>
+        {/*Inject Apollo client into the component*/}
+        <ApolloProvider client={client}>
+          <MuiThemeProvider>
+            {/* Injecting Material-UI theme into application context*/}
+            {route.component}
+          </MuiThemeProvider>
+        </ApolloProvider>
       </App>,
       container,
       () => onRenderComplete(route, location),

@@ -7,6 +7,7 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
+import 'isomorphic-fetch';
 import path from 'path';
 import express from 'express';
 import cookieParser from 'cookie-parser';
@@ -29,6 +30,12 @@ import models from './data/models';
 import schema from './data/schema';
 import assets from './assets.json'; // eslint-disable-line import/no-unresolved
 import { port, auth } from './config';
+import {
+    ApolloClient,
+    ApolloProvider,
+    createNetworkInterface,
+    getDataFromTree,
+} from 'react-apollo'; // apolloclient for gql
 
 
 const app = express();
@@ -95,7 +102,12 @@ app.use('/graphql', expressGraphQL(req => ({
 app.get('*', async (req, res, next) => {
   try {
     const css = new Set();
-
+    const client = new ApolloClient({
+      ssrMode: true, // serverside rendering
+      networkInterface: createNetworkInterface({
+        uri: 'http://localhost:3001/graphql',
+      }),
+    });
     // Global (context) variables that can be easily accessed from any React component
     // https://facebook.github.io/react/docs/context.html
     const context = {
@@ -105,6 +117,8 @@ app.get('*', async (req, res, next) => {
         // eslint-disable-next-line no-underscore-dangle
         styles.forEach(style => css.add(style._getCss()));
       },
+      //send apollo client in the context
+
     };
 
     const route = await router.resolve({
@@ -116,12 +130,23 @@ app.get('*', async (req, res, next) => {
       res.redirect(route.status || 302, route.redirect);
       return;
     }
+    const component = (
+      <App context={context}>
+        <ApolloProvider client={client}>
+          <MuiThemeProvider>
+            {route.component}
+          </MuiThemeProvider>
+        </ApolloProvider>
+      </App>
+    );
+
+    await getDataFromTree(component);
 
     const data = { ...route };
-    data.children = ReactDOM.renderToString(
+    data.children = ReactDOM.renderToString(component);
 
-      <App context={context}><MuiThemeProvider>{route.component}</MuiThemeProvider></App>,
-    );
+    // await getDataFromTree(component);
+
     data.styles = [
       { id: 'css', cssText: [...css].join('') },
     ];
