@@ -145,7 +145,7 @@ async function onLocationChange(location, action) {
 
     appInstance = ReactDOM.render(
       <App context={context}>
-        {/*Inject Apollo client into the component*/}
+        {/* Inject Apollo client into the component*/}
         <ApolloProvider client={client}>
           <MuiThemeProvider>
             {/* Injecting Material-UI theme into application context*/}

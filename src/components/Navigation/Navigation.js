@@ -7,20 +7,25 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import React from "react";
-// Utility module for using multiple class names in HTML elements
-import classnames from "classnames";
-import withStyles from "isomorphic-style-loader/lib/withStyles";
-// Selectively import materialize.css as and when needed in your components
-import sm from "materialize-css/bin/materialize.css";
+import React from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
+import IconButton from 'material-ui/IconButton';
+import { Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle } from 'material-ui/Toolbar';
+import NavigationExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-more';
+import MenuItem from 'material-ui/MenuItem';
+import IconMenu from 'material-ui/IconMenu';
+import RaisedButton from 'material-ui/RaisedButton';
+import ActionSearch from 'material-ui/svg-icons/action/search';
+
 // Import custom navigation styles
-import s from "./Navigation.css";
-import logoUrl from "./logo-small.png";
-import LoginModal from "./LoginModal";
+import s from './Navigation.css';
+import logoUrl from './logo-small.png';
+import LoginModal from './LoginModal';
+
 
 class Navigation extends React.Component {
   state = {
-    loginModalOpen: false
+    loginModalOpen: false,
   };
 
   handleLoginOpen = () => {
@@ -34,42 +39,37 @@ class Navigation extends React.Component {
   render() {
     return (
       <div>
-        <nav className={classnames(sm.blueGrey, sm.lighten5)}>
-          <div className={classnames(sm.navWrapper)}>
-            <a href="/" className={classnames(sm.brandLogo, sm.tealText)}>
+        <Toolbar>
+          <ToolbarGroup>
+            <a href="/">
               <img
                 src={logoUrl}
-                width="60"
-                height="60"
-                style={{ padding: 10 }}
+                width="80"
+                height="80"
+                style={{ padding: 20 }}
                 alt="SWD"
-              />Student Welfare Division
+              />
             </a>
-            <ul
-              id={sm.navMobile}
-              className={classnames(sm.right, sm.hideOnMedAndDown)}
+            <ToolbarTitle text="SWD" href="/" />
+          </ToolbarGroup>
+          <ToolbarGroup>
+            <IconButton tooltip="Search Students" href="/search">
+              <ActionSearch />
+            </IconButton>
+            <ToolbarSeparator />
+            <RaisedButton label="Login" primary onTouchTap={this.handleLoginOpen} />
+            <IconMenu
+              iconButtonElement={
+                <IconButton touch>
+                  <NavigationExpandMoreIcon />
+                </IconButton>
+            }
             >
-              <li>
-                <a href="#!" className={classnames(sm.tealText)}>
-                  Contact Us
-                </a>
-              </li>
-              <li>
-                <a href="/search" className={classnames(sm.tealText)}>
-                  Student Search
-                </a>
-              </li>
-              <li>
-                <a
-                  onTouchTap={this.handleLoginOpen}
-                  className={classnames(sm.tealText)}
-                >
-                  Login
-                </a>
-              </li>
-            </ul>
-          </div>
-        </nav>
+              <MenuItem primaryText="Migration" />
+              <MenuItem primaryText="Contact us" />
+            </IconMenu>
+          </ToolbarGroup>
+        </Toolbar>
         <LoginModal
           open={this.state.loginModalOpen}
           onRequestClose={this.handleLoginClose}

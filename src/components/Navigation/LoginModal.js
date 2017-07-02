@@ -12,7 +12,7 @@ class LoginModal extends React.Component {
   };
 
   login() {
-    /*eslint class-methods-use-this: ["error", { "exceptMethods": ["login"] }] */
+    /* eslint class-methods-use-this: ["error", { "exceptMethods": ["login"] }] */
     // Code to submit login credentials
   }
   render() {
