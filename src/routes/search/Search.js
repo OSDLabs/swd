@@ -1,13 +1,13 @@
-import React, { PropTypes } from "react";
-import withStyles from "isomorphic-style-loader/lib/withStyles";
-import s from "./Search.css";
-import { gql, graphql } from "react-apollo";
+import React, { PropTypes } from 'react';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
+import s from './Search.css';
+import { gql, graphql } from 'react-apollo';
 
-import FlatButton from "material-ui/FlatButton";
-import TextField from "material-ui/TextField";
+import FlatButton from 'material-ui/FlatButton';
+import TextField from 'material-ui/TextField';
 
-import SearchBar from "./SearchBar";
-import SearchResults from "./SearchResults";
+import SearchBar from './SearchBar';
+import SearchResults from './SearchResults';
 
 class Search extends React.Component {
   constructor(props) {
@@ -18,9 +18,9 @@ class Search extends React.Component {
         ID: null,
         Room: null,
         Branch: null,
-        Hostel: null
+        Hostel: null,
       },
-      fetch: false
+      fetch: false,
     };
   }
 
@@ -87,9 +87,9 @@ const SearchWithData = graphql(searchQuery, {
       ID: null,
       Room: null,
       Branch: null,
-      Hostel: null
-    }
-  }
+      Hostel: null,
+    },
+  },
 })(Search);
 
 export default withStyles(s)(SearchWithData);
