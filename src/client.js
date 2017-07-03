@@ -30,7 +30,6 @@ import {
 
 injectTapEventPlugin();
 
-
 /* eslint-disable global-require */
 
 const client = new ApolloClient({
