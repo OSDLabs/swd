@@ -52,5 +52,4 @@ class Footer extends React.Component {
   }
 }
 
-// Concatenating footer's custom styles with that of Materialize css
 export default withStyles(s)(Footer);

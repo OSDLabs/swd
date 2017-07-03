@@ -9,8 +9,6 @@
 
 @import '../variables.css';
 
-/* @import '../materialize.css'; */
-
 .container
 {
     display: flex;
