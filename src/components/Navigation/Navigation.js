@@ -44,8 +44,8 @@ class Navigation extends React.Component {
             <a href="/">
               <img
                 src={logoUrl}
-                width="80"
-                height="80"
+                width="50"
+                height="50"
                 style={{ padding: 20 }}
                 alt="SWD"
               />

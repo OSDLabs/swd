@@ -20,6 +20,13 @@ import ReactDOM from 'react-dom/server';
 import PrettyError from 'pretty-error';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import {
+    ApolloClient,
+    ApolloProvider,
+    createNetworkInterface,
+    getDataFromTree,
+} from 'react-apollo'; // apolloclient for gql
+
 import App from './components/App';
 import Html from './components/Html';
 import { ErrorPageWithoutStyle } from './routes/error/ErrorPage';
@@ -30,12 +37,6 @@ import models from './data/models';
 import schema from './data/schema';
 import assets from './assets.json'; // eslint-disable-line import/no-unresolved
 import { port, auth } from './config';
-import {
-    ApolloClient,
-    ApolloProvider,
-    createNetworkInterface,
-    getDataFromTree,
-} from 'react-apollo'; // apolloclient for gql
 
 
 const app = express();
