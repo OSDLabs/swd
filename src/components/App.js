@@ -7,13 +7,9 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const ContextType = {
-  // Enables critical path CSS rendering
-  // https://github.com/kriasoft/isomorphic-style-loader
-  insertCss: PropTypes.func.isRequired,
-};
 
 /**
  * The top-level React component setting context (global) variables
@@ -39,13 +35,6 @@ const ContextType = {
  */
 class App extends React.PureComponent {
 
-  static propTypes = {
-    context: PropTypes.shape(ContextType).isRequired,
-    children: PropTypes.element.isRequired,
-  };
-
-  static childContextTypes = ContextType;
-
   getChildContext() {
     return this.props.context;
   }
@@ -57,5 +46,15 @@ class App extends React.PureComponent {
   }
 
 }
+
+App.propTypes = {
+  context: PropTypes.object.isRequired,
+  children: PropTypes.element.isRequired,
+};
+
+App.childContextTypes = {
+  insertCss: PropTypes.func.isRequired,
+  muiTheme: PropTypes.object.isRequired,
+};
 
 export default App;
