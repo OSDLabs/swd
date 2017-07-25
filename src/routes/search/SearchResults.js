@@ -42,7 +42,7 @@ class SearchResults extends React.Component {
                 <TableRow key={index}>
                   <TableRowColumn>{row.id}</TableRowColumn>
                   <TableRowColumn>{row.name}</TableRowColumn>
-                  <TableRowColumn>{row.hostel.hostelName}                                                              {row.hostel.hostelRoom}</TableRowColumn>
+                  <TableRowColumn>{row.hostel.hostelName}                                                                                            {row.hostel.hostelRoom}</TableRowColumn>
                 </TableRow>
 			              ))}
             </TableBody>

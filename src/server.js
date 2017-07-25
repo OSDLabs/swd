@@ -18,8 +18,7 @@ import jwt from 'jsonwebtoken';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
 import PrettyError from 'pretty-error';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import injectTapEventPlugin from 'react-tap-event-plugin';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import {
     ApolloClient,
     ApolloProvider,
@@ -42,16 +41,16 @@ import { port, auth } from './config';
 const app = express();
 
 
-// react-tap-event-plugin provides onTouchTap() to all React Components.
-// It's a mobile-friendly onClick() alternative for components in Material-UI,
-// especially useful for the buttons.
-injectTapEventPlugin();
 //
 // Tell any CSS tooling (such as Material UI) to use all vendor prefixes if the
 // user agent is not known.
 // -----------------------------------------------------------------------------
 global.navigator = global.navigator || {};
 global.navigator.userAgent = global.navigator.userAgent || 'all';
+
+const muiTheme = getMuiTheme({
+  userAgent: global.navigator.userAgent,
+});
 
 //
 // Register Node.js middleware
@@ -118,6 +117,8 @@ app.get('*', async (req, res, next) => {
         // eslint-disable-next-line no-underscore-dangle
         styles.forEach(style => css.add(style._getCss()));
       },
+      // Sending Material-UI theme through context
+      muiTheme,
       //send apollo client in the context
 
     };
@@ -134,9 +135,7 @@ app.get('*', async (req, res, next) => {
     const component = (
       <App context={context}>
         <ApolloProvider client={client}>
-          <MuiThemeProvider>
-            {route.component}
-          </MuiThemeProvider>
+          {route.component}
         </ApolloProvider>
       </App>
     );

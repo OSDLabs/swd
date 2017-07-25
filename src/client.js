@@ -12,23 +12,22 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import FastClick from 'fastclick';
 import queryString from 'query-string';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-import { createPath } from 'history/PathUtils';
-import history from './core/history';
-import App from './components/App';
-import { updateMeta } from './core/DOMUtils';
-import { ErrorReporter, deepForceUpdate } from './core/devUtils';
 import {
     ApolloClient,
     ApolloProvider,
     createNetworkInterface,
 } from 'react-apollo';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import { createPath } from 'history/PathUtils';
+import history from './core/history';
+import App from './components/App';
+import { updateMeta } from './core/DOMUtils';
+import { ErrorReporter, deepForceUpdate } from './core/devUtils';
+
 // react-tap-event-plugin provides onTouchTap() to all React Components.
 // It's a mobile-friendly onClick() alternative for components in Material-UI,
 // especially useful for the buttons.
 
-injectTapEventPlugin();
 
 /* eslint-disable global-require */
 
@@ -38,7 +37,9 @@ const client = new ApolloClient({
     uri: 'http://localhost:3001/graphql',
   }),
 });
-
+const muiTheme1 = getMuiTheme({
+  userAgent: navigator.userAgent,
+});
 // Global (context) variables that can be easily accessed from any React component
 // https://facebook.github.io/react/docs/context.html
 const context = {
@@ -49,8 +50,11 @@ const context = {
     const removeCss = styles.map(x => x._insertCss());
     return () => { removeCss.forEach(f => f()); };
   },
+  // Send Material-UI theme through context
+  muiTheme: muiTheme1,
 
 };
+
 
 // Switch off the native scroll restoration behavior and handle it manually
 // https://developers.google.com/web/updates/2015/09/history-api-scroll-restoration
@@ -144,12 +148,8 @@ async function onLocationChange(location, action) {
 
     appInstance = ReactDOM.render(
       <App context={context}>
-        {/* Inject Apollo client into the component*/}
         <ApolloProvider client={client}>
-          <MuiThemeProvider>
-            {/* Injecting Material-UI theme into application context*/}
-            {route.component}
-          </MuiThemeProvider>
+          {route.component}
         </ApolloProvider>
       </App>,
       container,

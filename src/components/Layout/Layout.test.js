@@ -8,19 +8,23 @@
  */
 
 /* eslint-env mocha */
-/* eslint-disable padded-blocks, no-unused-expressions */
+/* eslint-disable padded-blocks, no-unused-expressions, no-undef */
 
 import React from 'react';
-import { expect } from 'chai';
-import { render } from 'enzyme';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import App from '../App';
 import Layout from './Layout';
 
+
+const muiTheme = getMuiTheme({
+  userAgent: navigator.userAgent,
+});
+
 describe('Layout', () => {
 
-  it('renders children correctly', () => {
+  it('should render children correctly', () => {
     const wrapper = render(
-      <App context={{ insertCss: () => {} }}>
+      <App context={{ insertCss: () => {}, muiTheme }}>
         <Layout>
           <div className="child" />
         </Layout>
