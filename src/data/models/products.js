@@ -5,7 +5,7 @@ import Model from '../sequelize';
 
 const Products = Model.define('products', {
   id: {
-    type: DataTypes.BIGINT,
+    type: DataTypes.BIGINT(20),
     allowNull: false,
     primaryKey: true,
     autoIncrement: true,

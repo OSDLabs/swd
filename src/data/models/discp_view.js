@@ -26,12 +26,14 @@ const DiscpView = Model.define('discp_view', {
     allowNull: false,
   },
   severe: {
-    type: DataTypes.INTEGER(1),
+    type: DataTypes.BOOLEAN,
     allowNull: true,
+    defaultValue: null,
   },
   date: {
     type: DataTypes.STRING(20),
     allowNull: true,
+    defaultValue: null,
   },
 }, {
   tableName: 'discp_view',

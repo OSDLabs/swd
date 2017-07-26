@@ -4,15 +4,17 @@ import DataTypes from 'sequelize';
 import Model from '../sequelize';
 
 const Institure_Holidays = Model.define('institure_holidays', {
-  id: {
-    type: DataTypes.INTEGER(11).UNSIGNED,
-    allowNull: false,
-    autoIncrement: true,
-    primaryKey: true,
-  },
+  // required?
+  // id: {
+  //   type: DataTypes.INTEGER(11).UNSIGNED,
+  //   allowNull: false,
+  //   autoIncrement: true,
+  //   primaryKey: true,
+  // },
   date: {
-    type: DataTypes.BIGINT,
+    type: DataTypes.BIGINT(20),
     allowNull: false,
+    primaryKey: true,
   },
 }, {
   tableName: 'institure_holidays',

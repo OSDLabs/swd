@@ -9,6 +9,7 @@ const Login_IDs = Model.define('login_ids', {
     allowNull: false,
     defaultValue: '',
     primaryKey: true,
+    unique: true,
   },
   type: {
     type: DataTypes.STRING(11),

@@ -12,22 +12,27 @@ const LeaveTableGate = Model.define('leavetablegate', {
   ID: {
     type: DataTypes.STRING(12),
     allowNull: true,
+    defaultValue: null,
   },
   Name: {
     type: DataTypes.STRING(100),
     allowNull: true,
+    defaultValue: null,
   },
   LeaveStart: {
     type: DataTypes.DATE,
     allowNull: true,
+    defaultValue: null,
   },
   LeaveEnd: {
     type: DataTypes.DATE,
     allowNull: true,
+    defaultValue: null,
   },
   LeaveApproved: {
-    type: DataTypes.INTEGER(1),
+    type: DataTypes.BOOLEAN,
     allowNull: true,
+    defaultValue: null,
   },
 }, {
   tableName: 'leavetablegate',
