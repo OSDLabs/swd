@@ -31,9 +31,17 @@ export default {
     // });
     // const { data } = await resp.json();
     // if (!data || !data.news) throw new Error('Failed to load the news feed.');
+
+    // Dummy data
+    const latest_news = [
+      'INSTITUTE DUES SEMII -16-17',
+      'GATE 2018',
+      'Notification for ST students applying for National Scholarship',
+      'ATTENTION STUDENTS WHO WILL BE ON CAMPUS (SEM I, 17-18)',
+    ];
     return {
       title: 'Student Welfare Division',
-      component: <Layout><Home /></Layout>,
+      component: <Layout><Home sideCardData={latest_news} /></Layout>,
     };
   },
 

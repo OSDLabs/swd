@@ -15,18 +15,14 @@ import s from './Home.css';
 
 class Home extends React.Component {
   static propTypes = {
-    news: PropTypes.arrayOf(PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      link: PropTypes.string.isRequired,
-      content: PropTypes.string,
-    })).isRequired,
+    sideCardData: PropTypes.array.isRequired,
   };
 
   render() {
     return (
       <div className={s.container}>
         <MainCard />
-        <SideCard />
+        <SideCard listData={this.props.sideCardData} />
         <div>
           {/* {this.props.news.map(item => (
             <article key={item.link} className={s.newsItem}>
