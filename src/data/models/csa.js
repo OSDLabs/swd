@@ -4,14 +4,12 @@ import DataTypes from 'sequelize';
 import Model from '../sequelize';
 
 const CSA = Model.define('csa', {
-  // is this necessary?
-
-  // id: {
-  //   type: DataTypes.INTEGER(11).UNSIGNED,
-  //   allowNull: false,
-  //   autoIncrement: true,
-  //   primaryKey: true,
-  // }, 
+id: {
+    type: DataTypes.INTEGER(11).UNSIGNED,
+    allowNull: false,
+    autoIncrement: true,
+    primaryKey: true,
+  }, 
 name: {
     type: DataTypes.STRING(100),
     allowNull: false,
