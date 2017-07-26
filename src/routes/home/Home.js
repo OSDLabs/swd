@@ -9,6 +9,8 @@
 
 import React, { PropTypes } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
+import SideCard from './SideCard';
+import MainCard from './MainCard';
 import s from './Home.css';
 
 class Home extends React.Component {
@@ -22,10 +24,11 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div className={s.root}>
-        <div className={s.container}>
-          <h1>React.js News</h1>
-          {this.props.news.map(item => (
+      <div className={s.container}>
+        <MainCard />
+        <SideCard />
+        <div>
+          {/* {this.props.news.map(item => (
             <article key={item.link} className={s.newsItem}>
               <h1 className={s.newsTitle}><a href={item.link}>{item.title}</a></h1>
               <div
@@ -34,7 +37,7 @@ class Home extends React.Component {
                 dangerouslySetInnerHTML={{ __html: item.content }}
               />
             </article>
-          ))}
+          ))} */}
         </div>
       </div>
     );
