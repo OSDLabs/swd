@@ -15,7 +15,7 @@ class SearchResults extends React.Component {
 
   render() {
     const results = this.props.results;
-    if (results.length < 800) {
+    if (results) {
       return (
         <div>
           <Table
@@ -50,7 +50,9 @@ class SearchResults extends React.Component {
         </div>
       );
     }
-    return (<p>Overflow</p>);
+    else {
+      return (<p>No Results</p>);
+    }
   }
 
 }

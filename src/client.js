@@ -151,7 +151,7 @@ async function onLocationChange(location, action) {
     }
 
     appInstance = ReactDOM.render(
-      <App context={context}>
+      <App context={context}> 
         <ApolloProvider client={client}>
           {route.component}
         </ApolloProvider>

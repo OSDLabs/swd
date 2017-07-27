@@ -5,9 +5,10 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 
 
-const hostels = ['AH1', 'AH2', 'AH3', 'AH4', 'AH5', 'AH6', 'AH7', 'AH8', 'AH9', 'CH1', 'CH2', 'CH3', 'CH4', 'CH5', 'CH6'];
+const hostels = [null, 'AH1', 'AH2', 'AH3', 'AH4', 'AH5', 'AH6', 'AH7', 'AH8', 'AH9', 'CH1', 'CH2', 'CH3', 'CH4', 'CH5', 'CH6'];
 
 const branches = [
+  { value: null, name: '' },
   { value: 'A1', name: 'Chemical' },
   { value: 'A3', name: 'EEE' },
   { value: 'A4', name: 'Mechanical' },
@@ -67,13 +68,22 @@ class SearchBar extends React.Component {
     this.setState(update);
   }
 
-
+  getItems(values, keys = false) {
+        // returns Select field items acc to the values sent
+    return values.map(el => (
+      <MenuItem
+        key={keys ? el.name : el}
+        value={keys ? el.value : el}
+        primaryText={keys ? el.name : el}
+      />
+        ));
+  }
   render() {
         // basic search form
         // TODO: Validation so that atleast one of the fields are no empty on submit
 
     return (
-      <form className="searchbar">
+      <form className="searchbar" onSubmit={e => this.props.onUserSearch(this.state, e)}>
         <TextField
           floatingLabelText="Name"
           underlineStyle={{ display: 'none' }}
@@ -119,9 +129,9 @@ class SearchBar extends React.Component {
         <br />
 
         <FlatButton
+          type="submit"
           label="Search"
           primary
-          onTouchTap={e => this.props.onUserSearch(this.state, e)}
         />
       </form>
     );

@@ -30,8 +30,8 @@ const studentQuery = {
   },
 
   resolve(root, request) {
-        // constructs the where clause for sql
-        // TODO: Bad code; someone help
+    // constructs the where clause for sql
+    // TODO: Bad code; someone help
     const query = {};
     if (request.name) query.name = { $like: `%${request.name}%` };
     if (request.id) query.id = { $like: `%${request.id}%` };
@@ -39,6 +39,7 @@ const studentQuery = {
     // if (request.Room) query.hostel_room = { $like: `%${request.Room}%` };
     // if (request.Branch) query.id = { $like: `%${request.Branch}%` };
     // TODO: Queries either for branch or ID; not both
+
 
     return student.findAll({
       attributes: [
@@ -49,7 +50,7 @@ const studentQuery = {
         'hostel',
         'admit',
       ],
-      where: query,
+      where: query
     }).then(res =>
             res.map(val => ({
               id: val.get().id,
