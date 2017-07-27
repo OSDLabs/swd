@@ -25,7 +25,7 @@ describe('Layout', () => {
   it('should render children correctly', () => {
     const wrapper = render(
       <App context={{ insertCss: () => {}, muiTheme }}>
-        <Layout>
+        <Layout isLoggedIn>
           <div className="child" />
         </Layout>
       </App>,

@@ -7,11 +7,15 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-.sideCol {
-	cursor: pointer;
-	opacity: 0.7;
+@import '../../components/variables.css';
+
+.root {
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
-.sideCol:hover {
-	opacity: 1;
+.container {
+  margin: 0 auto;
+  padding: 0 0 40px;
+  max-width: var(--max-content-width);
 }
