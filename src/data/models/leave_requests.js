@@ -44,10 +44,12 @@ const Leave_Requests = Model.define('leave_requests', {
   approved_by: {
     type: DataTypes.STRING(50),
     allowNull: true,
+    defaultValue: null,
   },
   approved: {
-    type: DataTypes.INTEGER(1).UNSIGNED,
+    type: DataTypes.BOOLEAN.UNSIGNED,
     allowNull: true,
+    defaultValue: null,
   },
   comment: {
     type: DataTypes.TEXT,

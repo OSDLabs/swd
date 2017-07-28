@@ -23,14 +23,17 @@ const Superintendents = Model.define('superintendents', {
   chamber: {
     type: DataTypes.STRING(20),
     allowNull: true,
+    defaultValue: null,
   },
   office: {
     type: DataTypes.STRING(20),
     allowNull: true,
+    defaultValue: null,
   },
   residence: {
     type: DataTypes.STRING(20),
     allowNull: true,
+    defaultValue: null,
   },
 }, {
   tableName: 'superintendents',

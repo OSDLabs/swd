@@ -18,10 +18,12 @@ const Nucleus = Model.define('nucleus', {
   chamber: {
     type: DataTypes.STRING(20),
     allowNull: true,
+    defaultValue: null,
   },
   office: {
     type: DataTypes.STRING(20),
     allowNull: true,
+    defaultValue: null,
   },
 }, {
   tableName: 'nucleus',

@@ -11,8 +11,9 @@ const Institure_Holidays = Model.define('institure_holidays', {
     primaryKey: true,
   },
   date: {
-    type: DataTypes.BIGINT,
+    type: DataTypes.DATE,
     allowNull: false,
+    primaryKey: true,
   },
 }, {
   tableName: 'institure_holidays',

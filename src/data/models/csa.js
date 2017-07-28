@@ -9,7 +9,7 @@ const CSA = Model.define('csa', {
     allowNull: false,
     autoIncrement: true,
     primaryKey: true,
-  },
+  }, 
   name: {
     type: DataTypes.STRING(100),
     allowNull: false,

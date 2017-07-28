@@ -18,10 +18,12 @@ const Staff = Model.define('staff', {
   chamber: {
     type: DataTypes.STRING(10),
     allowNull: true,
+    defaultValue: null,
   },
   office: {
     type: DataTypes.STRING(20),
     allowNull: true,
+    defaultValue: null,
   },
 }, {
   tableName: 'staff',

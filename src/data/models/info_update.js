@@ -23,6 +23,7 @@ const Info_Update = Model.define('info_update', {
   phone: {
     type: DataTypes.STRING(20),
     allowNull: true,
+    defaultValue: null,
   },
   address: {
     type: DataTypes.TEXT,
@@ -31,6 +32,7 @@ const Info_Update = Model.define('info_update', {
   email: {
     type: DataTypes.STRING(100),
     allowNull: true,
+    defaultValue: null,
   },
 }, {
   tableName: 'info_update',
