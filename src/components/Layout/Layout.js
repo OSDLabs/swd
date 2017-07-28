@@ -8,6 +8,8 @@ import s from './Layout.css';
 import Header from '../Header';
 // import Feedback from '../Feedback';
 import Footer from '../Footer';
+import DrawerItems from '../Drawer';
+import Navigation from '../Navigation'
 
 
 // react-tap-event-plugin provides onTouchTap() to all React Components.
@@ -17,15 +19,61 @@ injectTapEventPlugin();
 
 class Layout extends React.Component {
 
+  static propTypes = {
+    children: PropTypes.node.isRequired,
+    isLoggedIn: PropTypes.bool.isRequired,
+  };
+
+  state = {
+    drawerOpen: true,
+  };
+
+  handleDrawerToggle = () => {
+    this.setState({ drawerOpen: !this.state.drawerOpen });
+  };
+
   render() {
-    return (
-      <MuiThemeProvider muiTheme={this.context.muiTheme}>
+    if (!this.props.isLoggedIn) {
+      return (
         <div>
-          <Header />
+          <Header
+          />
           {this.props.children}
-          <Footer />
+          {// <Feedback />
+          }
+          <Footer
+          isLoggedIn={this.props.isLoggedIn}
+          />
         </div>
-      </MuiThemeProvider>
+      );
+    }
+    const contentStyle = {  transition: 'margin-left 450ms cubic-bezier(0.23, 1, 0.32, 1)' };
+
+    if (this.state.drawerOpen) {
+      contentStyle.marginLeft = 256;
+    }
+
+    return (
+      <div>
+        <div style={contentStyle}>
+          <Navigation 
+          toggleFunc={this.handleDrawerToggle}
+          drawerOpen={this.state.drawerOpen}
+          isLoggedIn={this.props.isLoggedIn}
+          />
+          {this.props.children}
+          {// <Feedback />
+          }
+          <Footer
+          isLoggedIn={this.props.isLoggedIn}
+          />
+        </div>
+        <div>
+        <DrawerItems
+          open={this.state.drawerOpen}
+        />
+        </div> 
+      </div>
     );
   }
 }

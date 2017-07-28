@@ -8,9 +8,9 @@
  */
 
 import React from 'react';
-import LayoutConsole from '../../components/LayoutConsole';
+import Layout from '../../components/Layout';
 
-const title = 'Admin Page';
+const title = 'User Console';
 const isAdmin = true;
 
 export default {
@@ -27,7 +27,7 @@ export default {
     return {
       title,
       chunk: 'admin',
-      component: <LayoutConsole><Admin title={title} /></LayoutConsole>,
+      component: <Layout isLoggedIn={true}><Admin title={title} /></Layout>,
     };
   },
 

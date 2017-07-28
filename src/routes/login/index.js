@@ -20,7 +20,7 @@ export default {
   action() {
     return {
       title,
-      component: <Layout><Login title={title} /></Layout>,
+      component: <Layout isLoggedIn={false}><Login title={title} /></Layout>,
     };
   },
 

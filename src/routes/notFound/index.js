@@ -20,7 +20,7 @@ export default {
   action() {
     return {
       title,
-      component: <Layout><NotFound title={title} /></Layout>,
+      component: <Layout isLoggedIn={false}><NotFound title={title} /></Layout>,
       status: 404,
     };
   },
