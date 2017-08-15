@@ -23,10 +23,12 @@ const Faculty_Incharge = Model.define('faculty_incharge', {
   chamber: {
     type: DataTypes.STRING(20),
     allowNull: true,
+    defaultValue: null,
   },
   office: {
     type: DataTypes.STRING(20),
     allowNull: true,
+    defaultValue: null,
   },
 }, {
   tableName: 'faculty_incharge',

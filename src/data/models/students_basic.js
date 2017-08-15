@@ -9,6 +9,7 @@ const Students_Basic = Model.define('students_basic', {
     allowNull: false,
     defaultValue: '',
     primaryKey: true,
+    unique: true,
   },
   student_name: {
     type: DataTypes.STRING(200),

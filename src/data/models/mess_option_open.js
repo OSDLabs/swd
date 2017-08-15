@@ -5,7 +5,7 @@ import Model from '../sequelize';
 
 const Mess_Option_Open = Model.define('mess_option_open', {
   open: {
-    type: DataTypes.INTEGER(1),
+    type: DataTypes.BOOLEAN,
     allowNull: false,
     defaultValue: '0',
     primaryKey: true,

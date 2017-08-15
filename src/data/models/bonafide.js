@@ -22,9 +22,10 @@ const Bonafide = Model.define('bonafide', {
     allowNull: false,
     primaryKey: true,
     autoIncrement: true,
+    unique: true,
   },
   req_date: {
-    type: DataTypes.BIGINT,
+    type: DataTypes.BIGINT(20),
     allowNull: false,
   },
   other_reason: {

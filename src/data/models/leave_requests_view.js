@@ -7,7 +7,6 @@ const Leave_Requests_View = Model.define('leave_requests_view', {
   id: {
     type: DataTypes.STRING(12),
     allowNull: false,
-    primaryKey: true,
   },
   student_name: {
     type: DataTypes.TEXT,
@@ -16,6 +15,7 @@ const Leave_Requests_View = Model.define('leave_requests_view', {
   leave_id: {
     type: DataTypes.INTEGER(20),
     allowNull: false,
+    primaryKey: true,
   },
   login_id: {
     type: DataTypes.STRING(20),

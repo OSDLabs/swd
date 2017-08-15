@@ -23,14 +23,17 @@ const Wardens = Model.define('wardens', {
   chamber: {
     type: DataTypes.STRING(10),
     allowNull: true,
+    defaultValue: null,
   },
   office: {
     type: DataTypes.STRING(20),
     allowNull: true,
+    defaultValue: null,
   },
   residence: {
     type: DataTypes.STRING(20),
     allowNull: true,
+    defaultValue: null,
   },
 }, {
   tableName: 'wardens',
