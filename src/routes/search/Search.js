@@ -1,4 +1,4 @@
-import React /* , { PropTypes }*/ from 'react';
+import React, { PropTypes } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 
 import { gql, graphql } from 'react-apollo';
@@ -22,6 +22,7 @@ class Search extends React.Component {
       },
       fetch: false,
     };
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
   handleSearch(query) {
@@ -41,7 +42,7 @@ class Search extends React.Component {
             {this.props.title}
           </h1>
           {/* handleSearch() creates a Parent -> Child communication */}
-          <SearchBar onUserSearch={this.handleSearch.bind(this)} />
+          <SearchBar onUserSearch={this.handleSearch} />
           <br />
           {this.props.data.student && this.state.fetch
             ? <SearchResults results={this.props.data.student} />
@@ -52,6 +53,11 @@ class Search extends React.Component {
     );
   }
 }
+
+Search.propTypes = {
+  title: PropTypes.string.isRequired,
+  data: PropTypes.object.isRequired,
+};
 
 // create the query to get the search results
 const searchQuery = gql`

@@ -1,6 +1,12 @@
 {
+  "plugins": {
+  	"react",
+  	"no-console",
+  	"global-require"
+  },
   "rules": {
     "no-console": "off",
-    "global-require": "off"
+    "global-require": "off",
+    "react/forbid-prop-types": 0,
   }
 }
