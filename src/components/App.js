@@ -9,7 +9,12 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
+// react-tap-event-plugin provides onTouchTap() to all React Components.
+// It's a mobile-friendly onClick() alternative for components in Material-UI,
+// especially useful for the buttons.
+injectTapEventPlugin();
 
 /**
  * The top-level React component setting context (global) variables

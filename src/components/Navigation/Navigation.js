@@ -119,18 +119,17 @@ class Navigation extends React.Component {
           </IconButton>
           <ToolbarSeparator />
           <RaisedButton label="Logout" primary />
+          <Avatar
+            src={logoUrl.default}
+            size={45}
+            style={{ margin: 5 }}
+          />
           <IconMenu
             iconButtonElement={
-              <div className={s.sideCol}>
-                <Avatar
-                  src={logoUrl.default}
-                  size={45}
-                  style={{ margin: 5 }}
-                />
-                <IconButton touch>
-                  <NavigationExpandMoreIcon />
-                </IconButton>
-              </div>
+              <IconButton touch>
+                <NavigationExpandMoreIcon />
+              </IconButton>
+
             }
           >
             <MenuItem primaryText="My Profile" />
