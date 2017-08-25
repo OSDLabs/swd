@@ -26,6 +26,17 @@ class SearchBar extends React.Component {
     onUserSearch: PropTypes.func.isRequired,
   }
 
+  static getItems(values, keys = false) {
+        // returns Select field items acc to the values sent
+    return values.map(el => (
+      <MenuItem
+        key={keys ? el.value : el}
+        value={keys ? el.name : el}
+        primaryText={keys ? el.name : el}
+      />
+        ));
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -51,16 +62,7 @@ class SearchBar extends React.Component {
     this.setState(update);
   }
 
-  getItems(values, keys = false) {
-        // returns Select field items acc to the values sent
-    return values.map(el => (
-      <MenuItem
-        key={keys ? el.value : el}
-        value={keys ? el.name : el}
-        primaryText={keys ? el.name : el}
-      />
-        ));
-  }
+
   render() {
         // basic search form
         // TODO: Validation so that atleast one of the fields are no empty on submit

@@ -14,7 +14,7 @@ export default {
         <Layout>
           <Search title={title} />
         </Layout>
-			),
+      ),
     };
   },
 };

@@ -1,11 +1,11 @@
-import React, { PropTypes } from 'react';
+import React /* , { PropTypes }*/ from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import s from './Search.css';
+
 import { gql, graphql } from 'react-apollo';
+// import FlatButton from 'material-ui/FlatButton';
+// import TextField from 'material-ui/TextField';
 
-import FlatButton from 'material-ui/FlatButton';
-import TextField from 'material-ui/TextField';
-
+import s from './Search.css';
 import SearchBar from './SearchBar';
 import SearchResults from './SearchResults';
 
