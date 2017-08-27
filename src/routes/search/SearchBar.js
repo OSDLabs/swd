@@ -26,6 +26,17 @@ class SearchBar extends React.Component {
     onUserSearch: PropTypes.func.isRequired,
   }
 
+  static getItems(values, keys = false) {
+        // returns Select field items acc to the values sent
+    return values.map(el => (
+      <MenuItem
+        key={keys ? el.value : el}
+        value={keys ? el.name : el}
+        primaryText={keys ? el.name : el}
+      />
+        ));
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -35,6 +46,11 @@ class SearchBar extends React.Component {
       Branch: null,
       Hostel: null,
     };
+    this.setTextField = this.setTextField.bind(this, 'Name');
+    this.setTextField = this.setTextField.bind(this, 'ID');
+    this.setSelectField = this.setSelectField.bind(this, 'Hostel');
+    this.setTextField = this.setTextField.bind(this, 'Room');
+    this.setSelectField.bind(this, 'Branch');
   }
 
 
@@ -51,16 +67,7 @@ class SearchBar extends React.Component {
     this.setState(update);
   }
 
-  getItems(values, keys = false) {
-        // returns Select field items acc to the values sent
-    return values.map(el => (
-      <MenuItem
-        key={keys ? el.value : el}
-        value={keys ? el.name : el}
-        primaryText={keys ? el.name : el}
-      />
-        ));
-  }
+
   render() {
         // basic search form
         // TODO: Validation so that atleast one of the fields are no empty on submit
@@ -70,19 +77,19 @@ class SearchBar extends React.Component {
         <TextField
           floatingLabelText="Name"
           underlineStyle={{ display: 'none' }}
-          onChange={this.setTextField.bind(this, 'Name')}
+          onChange={this.setTextField}
         />
 
         <TextField
           floatingLabelText="ID No"
           underlineStyle={{ display: 'none' }}
-          onChange={this.setTextField.bind(this, 'ID')}
+          onChange={this.setTextField}
         />
 
         <br />
 
         <SelectField
-          onChange={this.setSelectField.bind(this, 'Hostel')}
+          onChange={this.setSelectField}
           floatingLabelText="Hostel"
           value={this.state.Hostel}
           autoWidth
@@ -95,13 +102,13 @@ class SearchBar extends React.Component {
         <TextField
           floatingLabelText="Room No"
           underlineStyle={{ display: 'none' }}
-          onChange={this.setTextField.bind(this, 'Room')}
+          onChange={this.setTextField}
         />
 
         <br />
 
         <SelectField
-          onChange={this.setSelectField.bind(this, 'Branch')}
+          onChange={this.setSelectField}
           floatingLabelText="Branch"
           value={this.state.Branch}
           autoWidth

@@ -10,7 +10,7 @@ import {
 
 class SearchResults extends React.Component {
   static propTypes = {
-    results: PropTypes.array,
+    results: PropTypes.array.isRequired,
   }
 
   render() {
@@ -38,13 +38,13 @@ class SearchResults extends React.Component {
               showRowHover
             >
               {/* Map the results to a table */}
-              {results.map((row, index) => (
-                <TableRow key={index}>
+              {results.map(row => (
+                <TableRow key={row.id}>
                   <TableRowColumn>{row.id}</TableRowColumn>
                   <TableRowColumn>{row.name}</TableRowColumn>
-                  <TableRowColumn>{row.hostel.hostelName}                                                                                            {row.hostel.hostelRoom}</TableRowColumn>
+                  <TableRowColumn>{row.hostel.hostelName}{row.hostel.hostelRoom}</TableRowColumn>
                 </TableRow>
-			              ))}
+                    ))}
             </TableBody>
           </Table>
         </div>

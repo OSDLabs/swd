@@ -1,13 +1,12 @@
-import StudentType from '../types/StudentType';
-import Student from '../models/student_info';
-
-
 import {
-    GraphQLObjectType as ObjectType,
+    // GraphQLObjectType as ObjectType,
     GraphQLString as StringType,
-    GraphQLNonNull as NonNull,
+    // GraphQLNonNull as NonNull,
     GraphQLList as List,
 } from 'graphql';
+
+import StudentType from '../types/StudentType';
+import Student from '../models/student_info';
 
 
 const student = {
