@@ -1,19 +1,19 @@
 CREATE TABLE `student` (
 	`id` varchar(10) NOT NULL,
-	`studentName` varchar(13) NOT NULL,
-	`bitsId` varchar NOT NULL UNIQUE,
+	`studentName` varchar(50) NOT NULL,
+	`bitsId` varchar(15) NOT NULL UNIQUE,
 	`hostelPs` BOOLEAN NOT NULL,
 	`gender` varchar(1),
 	`bDay` DATE,
 	`phone` varchar(20),
-	`email` varchar,
-	`address` varchar,
+	`email` varchar(50),
+	`address` varchar(50),
 	`bloodGroup` varchar(3),
 	`cgpa` FLOAT,
 	`admit` DATE,
-	`parentName` varchar,
+	`parentName` varchar(50),
 	`parentPhone` varchar(20),
-	`parentEmail` varchar,
+	`parentEmail` varchar(50),
 	PRIMARY KEY (`id`)
 );
 
@@ -21,8 +21,8 @@ CREATE TABLE `bonafide` (
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`studentId` varchar(10) NOT NULL,
 	`reqDate` DATE,
-	`reason` VARCHAR(255),
-	`otherReason` varchar,
+	`reason` varchar(100),
+	`otherReason` varchar(100),
 	`year` INT(4),
 	`printed` BOOLEAN NOT NULL,
 	PRIMARY KEY (`id`)
@@ -30,8 +30,8 @@ CREATE TABLE `bonafide` (
 
 CREATE TABLE `csa` (
 	`studentId` varchar(10) NOT NULL,
-	`title` varchar,
-	`csaEmail` varchar,
+	`title` varchar(20),
+	`csaEmail` varchar(30),
 	PRIMARY KEY (`studentId`)
 );
 
@@ -45,11 +45,11 @@ CREATE TABLE `leave` (
 	`studentId` varchar(10) NOT NULL,
 	`dateStart` DATE,
 	`dateEnd` DATE,
-	`reason` varchar,
-	`consentType` varchar,
-	`approvedBy` varchar,
+	`reason` varchar(100),
+	`consentType` varchar(10),
+	`approvedBy` varchar(30),
 	`approved` BOOLEAN NOT NULL,
-	`comment` varchar,
+	`comment` varchar(100),
 	PRIMARY KEY (`id`)
 );
 
@@ -57,15 +57,15 @@ CREATE TABLE `disco` (
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`studentId` varchar(10) NOT NULL,
 	`dateOfViolation` DATE,
-	`subject` varchar,
-	`action` varchar,
+	`subject` varchar(30),
+	`action` varchar(100),
 	`date` DATE,
 	PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `facultyIncharge` (
-	`facultyId` varchar NOT NULL,
-	`function` VARCHAR(255) NOT NULL,
+	`facultyId` varchar(10) NOT NULL,
+	`function` varchar(20) NOT NULL,
 	PRIMARY KEY (`facultyId`,`function`)
 );
 
@@ -79,7 +79,7 @@ CREATE TABLE `holiday` (
 CREATE TABLE `inOutDetail` (
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`studentId` varchar(10) NOT NULL,
-	`place` varchar,
+	`place` varchar(20),
 	`outDateTime` DATETIME,
 	`inDateTime` DATETIME,
 	`onCampus` BOOLEAN,
@@ -97,13 +97,13 @@ CREATE TABLE `lateComer` (
 CREATE TABLE `loginId` (
 	`loginId` varchar(10) NOT NULL,
 	`type` INT(2) NOT NULL UNIQUE,
-	`passHash` varchar NOT NULL,
-	`passSalt` varchar NOT NULL,
+	`passHash` varchar(100) NOT NULL,
+	`passSalt` varchar(100) NOT NULL,
 	PRIMARY KEY (`loginId`)
 );
 
 CREATE TABLE `messOptionMonthYear` (
-	`monthYear` varchar NOT NULL,
+	`monthYear` varchar(10) NOT NULL,
 	`dateOpen` DATE,
 	`dateClose` DATE,
 	PRIMARY KEY (`monthYear`)
@@ -127,18 +127,19 @@ CREATE TABLE `noticeCategories` (
 );
 
 CREATE TABLE `faculty` (
-	`loginId` varchar NOT NULL,
-	`name` varchar NOT NULL,
-	`chamber` varchar,
-	`office` varchar,
-	`phone` varchar,
+	`loginId` varchar(10) NOT NULL,
+	`name` varchar(50) NOT NULL,
+	`chamber` varchar(10),
+	`office` varchar(10),
+	`phone` varchar(15),
+	`email` varchar(50) NOT NULL,
 	PRIMARY KEY (`loginId`)
 );
 
 CREATE TABLE `merchandise` (
 	`id` INT NOT NULL AUTO_INCREMENT,
-	`name` varchar NOT NULL,
-	`type` varchar,
+	`name` varchar(30) NOT NULL,
+	`type` varchar(30),
 	`cost` INT,
 	PRIMARY KEY (`id`)
 );
@@ -153,30 +154,30 @@ CREATE TABLE `transaction` (
 );
 
 CREATE TABLE `messBill` (
-	`studentId` INT(10) NOT NULL,
-	`month` varchar NOT NULL,
+	`studentId` varchar(10) NOT NULL,
+	`month` varchar(10) NOT NULL,
 	`amount` INT NOT NULL,
 	PRIMARY KEY (`studentId`,`month`)
 );
 
 CREATE TABLE `warden` (
-	`facultyId` varchar NOT NULL,
-	`hostel` varchar NOT NULL,
-	`residence` varchar,
+	`facultyId` varchar(10) NOT NULL,
+	`hostel` varchar(10) NOT NULL,
+	`residence` varchar(10),
 	PRIMARY KEY (`facultyId`,`hostel`)
 );
 
 CREATE TABLE `superintendent` (
-	`facultyId` varchar NOT NULL,
-	`function` VARCHAR(255) NOT NULL,
-	`residence` varchar,
+	`facultyId` varchar(10) NOT NULL,
+	`function` varchar(20) NOT NULL,
+	`residence` varchar(30),
 	PRIMARY KEY (`facultyId`,`function`)
 );
 
 CREATE TABLE `miscBill` (
 	`id` INT NOT NULL,
 	`studentId` varchar(10) NOT NULL,
-	`name` varchar NOT NULL,
+	`name` varchar(50) NOT NULL,
 	`amount` INT NOT NULL,
 	PRIMARY KEY (`id`)
 );
@@ -185,57 +186,57 @@ CREATE TABLE `dayPass` (
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`studentId` varchar(10) NOT NULL,
 	`date` DATE NOT NULL,
-	`reason` varchar,
-	`consentType` varchar,
-	`approvedBy` varchar,
-	`comment` varchar,
+	`reason` varchar(30),
+	`consentType` varchar(20),
+	`approvedBy` varchar(30),
+	`comment` varchar(40),
 	PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `loginType` (
 	`id` INT(2) NOT NULL AUTO_INCREMENT,
-	`type` varchar NOT NULL UNIQUE,
+	`type` varchar(30) NOT NULL UNIQUE,
 	PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `ps` (
 	`id` varchar(10) NOT NULL,
-	`psStation` varchar,
+	`psStation` varchar(30),
 	`thesis` BOOLEAN NOT NULL,
 	PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `merchandiseOption` (
 	`id` INT NOT NULL AUTO_INCREMENT,
-	`size` varchar NOT NULL,
-	`nick` varchar,
+	`size` varchar(20) NOT NULL,
+	`nick` varchar(20),
 	PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `nucleus` (
-	`facultyId` INT NOT NULL,
+	`facultyId` INT(10) NOT NULL,
 	PRIMARY KEY (`facultyId`)
 );
 
 CREATE TABLE `staff` (
-	`loginId` varchar NOT NULL,
-	`name` varchar NOT NULL,
-	`type` varchar NOT NULL,
-	`phone` varchar NOT NULL,
+	`loginId` varchar(10) NOT NULL,
+	`name` varchar(50) NOT NULL,
+	`type` varchar(20) NOT NULL,
+	`phone` varchar(15) NOT NULL,
 	PRIMARY KEY (`loginId`)
 );
 
 CREATE TABLE `messOption` (
 	`studentId` varchar(10) NOT NULL,
-	`monthYear` varchar NOT NULL,
-	`mess` varchar,
+	`monthYear` varchar(10) NOT NULL,
+	`mess` varchar(1),
 	PRIMARY KEY (`studentId`,`monthYear`)
 );
 
 CREATE TABLE `hostel` (
 	`id` varchar(10) NOT NULL,
-	`hostel` varchar NOT NULL,
-	`room` varchar NOT NULL,
+	`hostel` varchar(10) NOT NULL,
+	`room` varchar(10) NOT NULL,
 	PRIMARY KEY (`id`)
 );
 
@@ -294,3 +295,4 @@ ALTER TABLE `messOption` ADD CONSTRAINT `messOption_fk1` FOREIGN KEY (`monthYear
 ALTER TABLE `messOption` ADD CONSTRAINT `messOption_fk2` FOREIGN KEY (`mess`) REFERENCES ``(``);
 
 ALTER TABLE `hostel` ADD CONSTRAINT `hostel_fk0` FOREIGN KEY (`id`) REFERENCES `student`(`id`);
+
