@@ -214,7 +214,11 @@ CREATE TABLE `merchandiseOption` (
 );
 
 CREATE TABLE `nucleus` (
+<<<<<<< HEAD
 	`facultyId` varchar(10) NOT NULL,
+=======
+	`facultyId` INT(10) NOT NULL,
+>>>>>>> 68f15ecd01da9e4da8cacbec78dc974c42bbbec7
 	PRIMARY KEY (`facultyId`)
 );
 
