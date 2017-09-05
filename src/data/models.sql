@@ -72,7 +72,7 @@ CREATE TABLE `facultyIncharge` (
 CREATE TABLE `holiday` (
 	`date` DATE NOT NULL,
 	`institute` BOOLEAN NOT NULL,
-	`name` varchar NOT NULL,
+	`name` varchar(50) NOT NULL,
 	PRIMARY KEY (`date`)
 );
 
@@ -88,7 +88,7 @@ CREATE TABLE `inOutDetail` (
 );
 
 CREATE TABLE `lateComer` (
-	`id` BINARY NOT NULL AUTO_INCREMENT,
+	`id` INT NOT NULL AUTO_INCREMENT,
 	`studentId` varchar(10) NOT NULL,
 	`dateTime` DATETIME NOT NULL,
 	PRIMARY KEY (`id`)
@@ -111,8 +111,8 @@ CREATE TABLE `messOptionMonthYear` (
 
 CREATE TABLE `notice` (
 	`id` INT NOT NULL AUTO_INCREMENT,
-	`title` varchar NOT NULL,
-	`url` varchar NOT NULL,
+	`title` varchar(50) NOT NULL,
+	`url` varchar(100) NOT NULL,
 	`categoryId` INT NOT NULL,
 	`published` DATETIME NOT NULL,
 	`updated` DATETIME NOT NULL,
@@ -122,7 +122,7 @@ CREATE TABLE `notice` (
 
 CREATE TABLE `noticeCategories` (
 	`id` INT NOT NULL AUTO_INCREMENT,
-	`name` varchar NOT NULL,
+	`name` varchar(100) NOT NULL,
 	PRIMARY KEY (`id`)
 );
 
@@ -214,7 +214,7 @@ CREATE TABLE `merchandiseOption` (
 );
 
 CREATE TABLE `nucleus` (
-	`facultyId` INT(10) NOT NULL,
+	`facultyId` varchar(10) NOT NULL,
 	PRIMARY KEY (`facultyId`)
 );
 
@@ -272,8 +272,6 @@ ALTER TABLE `transaction` ADD CONSTRAINT `transaction_fk2` FOREIGN KEY (`optionI
 
 ALTER TABLE `messBill` ADD CONSTRAINT `messBill_fk0` FOREIGN KEY (`studentId`) REFERENCES `student`(`id`);
 
-ALTER TABLE `messBill` ADD CONSTRAINT `messBill_fk1` FOREIGN KEY (`month`) REFERENCES ``(``);
-
 ALTER TABLE `warden` ADD CONSTRAINT `warden_fk0` FOREIGN KEY (`facultyId`) REFERENCES `faculty`(`loginId`);
 
 ALTER TABLE `superintendent` ADD CONSTRAINT `superintendent_fk0` FOREIGN KEY (`facultyId`) REFERENCES `faculty`(`loginId`);
@@ -291,8 +289,6 @@ ALTER TABLE `staff` ADD CONSTRAINT `staff_fk0` FOREIGN KEY (`loginId`) REFERENCE
 ALTER TABLE `messOption` ADD CONSTRAINT `messOption_fk0` FOREIGN KEY (`studentId`) REFERENCES `student`(`id`);
 
 ALTER TABLE `messOption` ADD CONSTRAINT `messOption_fk1` FOREIGN KEY (`monthYear`) REFERENCES `messOptionMonthYear`(`monthYear`);
-
-ALTER TABLE `messOption` ADD CONSTRAINT `messOption_fk2` FOREIGN KEY (`mess`) REFERENCES ``(``);
 
 ALTER TABLE `hostel` ADD CONSTRAINT `hostel_fk0` FOREIGN KEY (`id`) REFERENCES `student`(`id`);
 

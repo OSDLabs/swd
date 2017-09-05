@@ -1,12 +1,11 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('bonafide', {
+  return sequelize.define('leave', {
     id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true,
-      autoIncrement: true
+      primaryKey: true
     },
     studentId: {
       type: DataTypes.STRING(10),
@@ -16,7 +15,11 @@ module.exports = function(sequelize, DataTypes) {
         key: 'id'
       }
     },
-    reqDate: {
+    dateStart: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    dateEnd: {
       type: DataTypes.DATE,
       allowNull: true
     },
@@ -24,19 +27,23 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(100),
       allowNull: true
     },
-    otherReason: {
-      type: DataTypes.STRING(100),
+    consentType: {
+      type: DataTypes.STRING(10),
       allowNull: true
     },
-    year: {
-      type: DataTypes.INTEGER(4),
+    approvedBy: {
+      type: DataTypes.STRING(30),
       allowNull: true
     },
-    printed: {
+    approved: {
       type: DataTypes.INTEGER(1),
       allowNull: false
+    },
+    comment: {
+      type: DataTypes.STRING(100),
+      allowNull: true
     }
   }, {
-    tableName: 'bonafide'
+    tableName: 'leave'
   });
 };

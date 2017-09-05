@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('bonafide', {
+  return sequelize.define('lateComer', {
     id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
@@ -16,27 +16,11 @@ module.exports = function(sequelize, DataTypes) {
         key: 'id'
       }
     },
-    reqDate: {
+    dateTime: {
       type: DataTypes.DATE,
-      allowNull: true
-    },
-    reason: {
-      type: DataTypes.STRING(100),
-      allowNull: true
-    },
-    otherReason: {
-      type: DataTypes.STRING(100),
-      allowNull: true
-    },
-    year: {
-      type: DataTypes.INTEGER(4),
-      allowNull: true
-    },
-    printed: {
-      type: DataTypes.INTEGER(1),
       allowNull: false
     }
   }, {
-    tableName: 'bonafide'
+    tableName: 'lateComer'
   });
 };

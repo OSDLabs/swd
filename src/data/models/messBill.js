@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('csa', {
+  return sequelize.define('messBill', {
     studentId: {
       type: DataTypes.STRING(10),
       allowNull: false,
@@ -11,15 +11,16 @@ module.exports = function(sequelize, DataTypes) {
         key: 'id'
       }
     },
-    title: {
-      type: DataTypes.STRING(20),
-      allowNull: true
+    month: {
+      type: DataTypes.STRING(10),
+      allowNull: false,
+      primaryKey: true
     },
-    csaEmail: {
-      type: DataTypes.STRING(30),
-      allowNull: true
+    amount: {
+      type: DataTypes.INTEGER(11),
+      allowNull: false
     }
   }, {
-    tableName: 'csa'
+    tableName: 'messBill'
   });
 };

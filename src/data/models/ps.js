@@ -1,8 +1,8 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('csa', {
-    studentId: {
+  return sequelize.define('ps', {
+    id: {
       type: DataTypes.STRING(10),
       allowNull: false,
       primaryKey: true,
@@ -11,15 +11,15 @@ module.exports = function(sequelize, DataTypes) {
         key: 'id'
       }
     },
-    title: {
-      type: DataTypes.STRING(20),
-      allowNull: true
-    },
-    csaEmail: {
+    psStation: {
       type: DataTypes.STRING(30),
       allowNull: true
+    },
+    thesis: {
+      type: DataTypes.INTEGER(1),
+      allowNull: false
     }
   }, {
-    tableName: 'csa'
+    tableName: 'ps'
   });
 };
