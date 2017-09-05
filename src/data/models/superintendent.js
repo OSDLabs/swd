@@ -1,25 +1,26 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('csa', {
-    studentId: {
+  return sequelize.define('superintendent', {
+    facultyId: {
       type: DataTypes.STRING(10),
       allowNull: false,
       primaryKey: true,
       references: {
-        model: 'student',
-        key: 'id'
+        model: 'faculty',
+        key: 'loginId'
       }
     },
-    title: {
+    function: {
       type: DataTypes.STRING(20),
-      allowNull: true
+      allowNull: false,
+      primaryKey: true
     },
-    csaEmail: {
+    residence: {
       type: DataTypes.STRING(30),
       allowNull: true
     }
   }, {
-    tableName: 'csa'
+    tableName: 'superintendent'
   });
 };

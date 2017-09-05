@@ -1,8 +1,8 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('csa', {
-    studentId: {
+  return sequelize.define('hostel', {
+    id: {
       type: DataTypes.STRING(10),
       allowNull: false,
       primaryKey: true,
@@ -11,15 +11,15 @@ module.exports = function(sequelize, DataTypes) {
         key: 'id'
       }
     },
-    title: {
-      type: DataTypes.STRING(20),
-      allowNull: true
+    hostel: {
+      type: DataTypes.STRING(10),
+      allowNull: false
     },
-    csaEmail: {
-      type: DataTypes.STRING(30),
-      allowNull: true
+    room: {
+      type: DataTypes.STRING(10),
+      allowNull: false
     }
   }, {
-    tableName: 'csa'
+    tableName: 'hostel'
   });
 };
