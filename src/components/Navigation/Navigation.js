@@ -16,15 +16,7 @@ import MenuItem from 'material-ui/MenuItem';
 import IconMenu from 'material-ui/IconMenu';
 import RaisedButton from 'material-ui/RaisedButton';
 import ActionSearch from 'material-ui/svg-icons/action/search';
-import FontIcon from 'material-ui/FontIcon';
 import Avatar from 'material-ui/Avatar';
-
-import {
-  blue300,
-  indigo900,
-} from 'material-ui/styles/colors';
-
-
 // Import custom navigation styles
 import s from './Navigation.css';
 import logoUrl from './logo-small.png';

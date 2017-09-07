@@ -7,7 +7,6 @@ import s from './Layout.css';
 import Header from '../Header';
 import Footer from '../Footer';
 import Sidebar from '../Sidebar';
-import Navigation from '../Navigation';
 
 
 class Layout extends React.Component {

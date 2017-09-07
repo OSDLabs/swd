@@ -1,8 +1,6 @@
 import React, { PropTypes } from 'react';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
-import RaisedButton from 'material-ui/RaisedButton';
-
 import logoUrl from '../Navigation/logo-small.png';
 
 export default class Sidebar extends React.Component {

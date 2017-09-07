@@ -202,7 +202,7 @@
     "lint:css": "stylelint \"src/**/*.{css,less,scss,sss}\" --fix",
     "lint:staged": "lint-staged",
     "lint": "yarn run lint:js && yarn run lint:css",
-    "test": "mocha \"src/**/*.test.js\" --require babel-register --require test/setup.js --require test/helpers.js --require test/browser.js --reporter nyan",
+    "test": "mocha \"src/**/*.test.js\" --require babel-register --require test/setup.js --require test/helpers.js --require test/browser.js",
     "test:watch": "yarn run test -- --reporter min --watch",
     "clean": "babel-node tools/run clean",
     "copy": "babel-node tools/run copy",

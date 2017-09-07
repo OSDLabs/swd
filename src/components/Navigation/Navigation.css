@@ -1,17 +1,8 @@
-/**
- * React Starter Kit (https://www.reactstarterkit.com/)
- *
- * Copyright © 2014-present Kriasoft, LLC. All rights reserved.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.txt file in the root directory of this source tree.
- */
-
 .sideCol {
-	cursor: pointer;
-	opacity: 0.7;
+  cursor: pointer;
+  opacity: 0.7;
 }
 
 .sideCol:hover {
-	opacity: 1;
+  opacity: 1;
 }
