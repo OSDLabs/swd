@@ -11,7 +11,7 @@ import sequelize from '../sequelize';
 
 import bonafide from './bonafide';
 import csa from './csa';
-import dayPass from './daypass';
+import dayPass from './dayPass';
 import dayScholar from './dayScholar';
 import disco from './disco';
 import faculty from './faculty';
