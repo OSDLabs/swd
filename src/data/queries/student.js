@@ -5,65 +5,64 @@ import {
     GraphQLList as List,
 } from 'graphql';
 
-import StudentType from '../types/StudentType';
-import Student from '../models/student_info';
+import studentType from '../types/studentType';
+import student from '../models/student';
 
 
-const student = {
-  type: new List(StudentType),
+const studentQuery = {
+  type: new List(studentType),
   args: {
-    Name: {
+    name: {
       type: StringType,
     },
-    ID: {
+    id: {
       type: StringType,
     },
-    Hostel: {
+    hostelPs: {
       type: StringType,
     },
-    Room: {
-      type: StringType,
-    },
-    Branch: {
-      type: StringType,
-    },
+    // room: {
+    //   type: StringType,
+    // },
+    // branch: {
+    //   type: StringType,
+    // },
   },
 
   resolve(root, request) {
         // constructs the where clause for sql
         // TODO: Bad code; someone help
     const query = {};
-    if (request.Name) query.student_name = { $like: `%${request.Name}%` };
-    if (request.ID) query.id = { $like: `%${request.ID}%` };
-    if (request.Hostel) query.hostel = { $like: `%${request.Hostel}%` };
-    if (request.Room) query.hostel_room = { $like: `%${request.Room}%` };
-    if (request.Branch) query.id = { $like: `%${request.Branch}%` }; // TODO: Queries either for branch or ID; not both
+    if (request.name) query.name = { $like: `%${request.name}%` };
+    if (request.id) query.id = { $like: `%${request.id}%` };
+    if (request.hostelPs) query.hostelPs = { $like: `%${request.hostelPs}%` };
+    // if (request.Room) query.hostel_room = { $like: `%${request.Room}%` };
+    // if (request.Branch) query.id = { $like: `%${request.Branch}%` }; // TODO: Queries either for branch or ID; not both
 
     return Student.findAll({
       attributes: [
         'id',
-        'student_name',
-        'login_id',
+        'studentName',
+        'bitsId',
         'gender',
         'hostel',
-        'hostel_room',
         'admit',
       ],
       where: query,
     }).then(res =>
             res.map(val => ({
               id: val.get().id,
-              name: val.get().student_name,
-              loginID: val.get().login_id,
+              name: val.get().name,
+              bitsId: val.get().bitsId,
               gender: val.get().gender,
-              hostel: {
-                hostelName: val.get().hostel,
-                hostelRoom: val.get().hostel_room,
-              },
+              // hostel: {
+              //   hostelName: val.get().hostel,
+              //   hostelRoom: val.get().hostel_room,
+              // },
               admit: val.get().admit,
             })),
         );
   },
 };
 
-export default student;
+export default studentQuery;
