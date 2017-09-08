@@ -1,25 +1,28 @@
 /* jshint indent: 2 */
 
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('hostel', {
-    id: {
-      type: DataTypes.STRING(10),
-      allowNull: false,
-      primaryKey: true,
-      references: {
-        model: 'student',
-        key: 'id'
-      }
-    },
-    hostel: {
-      type: DataTypes.STRING(10),
-      allowNull: false
-    },
-    room: {
-      type: DataTypes.STRING(10),
-      allowNull: false
+import DataTypes from 'sequelize';
+import Model from '../sequelize';
+
+const hostel = Model.define('hostel', {
+  id: {
+    type: DataTypes.STRING(10),
+    allowNull: false,
+    primaryKey: true,
+    references: {
+      model: 'student',
+      key: 'id'
     }
-  }, {
-    tableName: 'hostel'
-  });
-};
+  },
+  hostel: {
+    type: DataTypes.STRING(10),
+    allowNull: false
+  },
+  room: {
+    type: DataTypes.STRING(10),
+    allowNull: false
+  }
+}, {
+  tableName: 'hostel'
+});
+
+export default hostel;
