@@ -11,7 +11,7 @@ export default {
     return {
       title,
       component: (
-        <Layout>
+        <Layout isLoggedIn={false}>
           <Search title={title} />
         </Layout>
       ),

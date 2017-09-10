@@ -9,19 +9,25 @@
 
 import React from 'react';
 import Layout from '../../components/Layout';
-import NotFound from './NotFound';
 
-const title = 'Page Not Found';
+const title = 'User Console';
+const isAdmin = true;
 
 export default {
 
-  path: '*',
+  path: '/console',
 
-  action() {
+  async action() {
+    if (!isAdmin) {
+      return { redirect: '/login' };
+    }
+
+    const Console = await require.ensure([], require => require('./Console').default, 'admin');
+
     return {
       title,
-      component: <Layout isLoggedIn={false}><NotFound title={title} /></Layout>,
-      status: 404,
+      chunk: 'admin',
+      component: <Layout isLoggedIn><Console title={title} /></Layout>,
     };
   },
 

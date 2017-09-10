@@ -24,6 +24,7 @@ export default {
     require('./privacy').default,
     require('./admin').default,
     require('./search').default,
+    require('./console').default,
 
     // Wildcard routes, e.g. { path: '*', ... } (must go last)
     require('./notFound').default,

@@ -7,7 +7,7 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Header.css';
 import Link from '../Link';
@@ -15,10 +15,21 @@ import Navigation from '../Navigation';
 import logoUrl from './bdome.png';
 
 class Header extends React.Component {
+
+  static propTypes = {
+    isLoggedIn: PropTypes.bool.isRequired,
+    toggleFunc: PropTypes.func.isRequired,
+    sideBarOpen: PropTypes.bool.isRequired,
+  };
+
   render() {
     return (
       <div className={s.root}>
-        <Navigation />
+        <Navigation
+          toggleFunc={this.props.toggleFunc}
+          sideBarOpen={this.props.sideBarOpen}
+          isLoggedIn={this.props.isLoggedIn}
+        />
         <div className={s.container}>
           <Link className={s.brand} to="/">
             <span className={s.brandTxt}>BITS Pilani, Goa</span>

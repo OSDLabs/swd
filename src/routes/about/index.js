@@ -21,7 +21,7 @@ export default {
     return {
       title: data.title,
       chunk: 'about',
-      component: <Layout><Page {...data} /></Layout>,
+      component: <Layout isLoggedIn={false}><Page {...data} /></Layout>,
     };
   },
 
