@@ -11,7 +11,7 @@ const Notices = Model.define('notices', {
     autoIncrement: true,
   },
   archived: {
-    type: DataTypes.INTEGER(1).UNSIGNED,
+    type: DataTypes.BOOLEAN,
     allowNull: false,
     defaultValue: '0',
   },
@@ -26,11 +26,11 @@ const Notices = Model.define('notices', {
     defaultValue: '',
   },
   published: {
-    type: DataTypes.BIGINT,
+    type: DataTypes.BIGINT(20),
     allowNull: false,
   },
   updated: {
-    type: DataTypes.BIGINT,
+    type: DataTypes.BIGINT(20),
     allowNull: false,
   },
   category: {

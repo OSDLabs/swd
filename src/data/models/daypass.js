@@ -15,7 +15,7 @@ const DayPass = Model.define('daypass', {
     allowNull: false,
   },
   Date: {
-    type: DataTypes.BIGINT,
+    type: DataTypes.BIGINT(20),
     allowNull: false,
   },
   Phone: {
@@ -35,7 +35,7 @@ const DayPass = Model.define('daypass', {
     allowNull: false,
   },
   Approved: {
-    type: DataTypes.INTEGER(1),
+    type: DataTypes.BOOLEAN,
     allowNull: false,
   },
   Comment: {

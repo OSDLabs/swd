@@ -16,6 +16,7 @@ const CGPA_View = Model.define('cgpa_view', {
   cgpa: {
     type: DataTypes.INTEGER(10),
     allowNull: true,
+    defaultValue: null,
   },
 }, {
   tableName: 'cgpa_view',

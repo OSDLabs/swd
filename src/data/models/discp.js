@@ -20,7 +20,7 @@ const Discp = Model.define('discp', {
     allowNull: false,
   },
   severe: {
-    type: DataTypes.INTEGER(1),
+    type: DataTypes.BOOLEAN,
     allowNull: false,
     defaultValue: '0',
   },

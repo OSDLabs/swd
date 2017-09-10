@@ -15,7 +15,11 @@
 
 import passport from 'passport';
 import { Strategy as FacebookStrategy } from 'passport-facebook';
-import { User, UserLogin, UserClaim, UserProfile } from '../data/models';
+// import { User, UserLogin, UserClaim, UserProfile } from '../data/models';
+import User from '../data/models/User.js';
+import UserLogin from '../data/models/UserLogin.js';
+import UserClaim from '../data/models/UserClaim.js';
+import UserProfile from '../data/models/UserProfile.js';
 import { auth as config } from '../config';
 
 /**
