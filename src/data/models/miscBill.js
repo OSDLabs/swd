@@ -7,26 +7,26 @@ const miscBill = Model.define('miscBill', {
   id: {
     type: DataTypes.INTEGER(11),
     allowNull: false,
-    primaryKey: true
+    primaryKey: true,
   },
   studentId: {
     type: DataTypes.STRING(10),
     allowNull: false,
     references: {
       model: 'student',
-      key: 'id'
-    }
+      key: 'id',
+    },
   },
   name: {
     type: DataTypes.STRING(50),
-    allowNull: false
+    allowNull: false,
   },
   amount: {
     type: DataTypes.INTEGER(11),
-    allowNull: false
-  }
+    allowNull: false,
+  },
 }, {
-  tableName: 'miscBill'
+  tableName: 'miscBill',
 });
 
 export default miscBill;

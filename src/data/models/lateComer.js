@@ -8,22 +8,22 @@ const lateComer = Model.define('lateComer', {
     type: DataTypes.INTEGER(11),
     allowNull: false,
     primaryKey: true,
-    autoIncrement: true
+    autoIncrement: true,
   },
   studentId: {
     type: DataTypes.STRING(10),
     allowNull: false,
     references: {
       model: 'student',
-      key: 'id'
-    }
+      key: 'id',
+    },
   },
   dateTime: {
     type: DataTypes.DATE,
-    allowNull: false
-  }
+    allowNull: false,
+  },
 }, {
-  tableName: 'lateComer'
+  tableName: 'lateComer',
 });
 
 export default lateComer;

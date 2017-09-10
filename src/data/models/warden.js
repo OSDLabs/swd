@@ -10,20 +10,20 @@ const warden = Model.define('warden', {
     primaryKey: true,
     references: {
       model: 'faculty',
-      key: 'loginId'
-    }
+      key: 'loginId',
+    },
   },
   hostel: {
     type: DataTypes.STRING(10),
     allowNull: false,
-    primaryKey: true
+    primaryKey: true,
   },
   residence: {
     type: DataTypes.STRING(10),
-    allowNull: true
-  }
+    allowNull: true,
+  },
 }, {
-  tableName: 'warden'
+  tableName: 'warden',
 });
 
 export default warden;

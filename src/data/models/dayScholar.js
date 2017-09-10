@@ -10,11 +10,11 @@ const dayScholar = Model.define('dayScholar', {
     primaryKey: true,
     references: {
       model: 'student',
-      key: 'id'
-    }
-  }
+      key: 'id',
+    },
+  },
 }, {
-  tableName: 'dayScholar'
+  tableName: 'dayScholar',
 });
 
 export default dayScholar;

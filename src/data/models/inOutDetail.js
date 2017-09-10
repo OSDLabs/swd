@@ -8,38 +8,38 @@ const inOutDetail = Model.define('inOutDetail', {
     type: DataTypes.INTEGER(11),
     allowNull: false,
     primaryKey: true,
-    autoIncrement: true
+    autoIncrement: true,
   },
   studentId: {
     type: DataTypes.STRING(10),
     allowNull: false,
     references: {
       model: 'student',
-      key: 'id'
-    }
+      key: 'id',
+    },
   },
   place: {
     type: DataTypes.STRING(20),
-    allowNull: true
+    allowNull: true,
   },
   outDateTime: {
     type: DataTypes.DATE,
-    allowNull: true
+    allowNull: true,
   },
   inDateTime: {
     type: DataTypes.DATE,
-    allowNull: true
+    allowNull: true,
   },
   onCampus: {
     type: DataTypes.INTEGER(1),
-    allowNull: true
+    allowNull: true,
   },
   onLeave: {
     type: DataTypes.INTEGER(1),
-    allowNull: true
-  }
+    allowNull: true,
+  },
 }, {
-  tableName: 'inOutDetail'
+  tableName: 'inOutDetail',
 });
 
 export default inOutDetail;

@@ -10,16 +10,16 @@ const facultyIncharge = Model.define('facultyIncharge', {
     primaryKey: true,
     references: {
       model: 'faculty',
-      key: 'loginId'
-    }
+      key: 'loginId',
+    },
   },
   function: {
     type: DataTypes.STRING(20),
     allowNull: false,
-    primaryKey: true
-  }
+    primaryKey: true,
+  },
 }, {
-  tableName: 'facultyIncharge'
+  tableName: 'facultyIncharge',
 });
 
 export default facultyIncharge;

@@ -8,22 +8,22 @@ const merchandise = Model.define('merchandise', {
     type: DataTypes.INTEGER(11),
     allowNull: false,
     primaryKey: true,
-    autoIncrement: true
+    autoIncrement: true,
   },
   name: {
     type: DataTypes.STRING(30),
-    allowNull: false
+    allowNull: false,
   },
   type: {
     type: DataTypes.STRING(30),
-    allowNull: true
+    allowNull: true,
   },
   cost: {
     type: DataTypes.INTEGER(11),
-    allowNull: true
-  }
+    allowNull: true,
+  },
 }, {
-  tableName: 'merchandise'
+  tableName: 'merchandise',
 });
 
 export default merchandise;

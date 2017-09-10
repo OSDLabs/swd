@@ -7,27 +7,27 @@ const loginId = Model.define('loginId', {
   loginId: {
     type: DataTypes.STRING(10),
     allowNull: false,
-    primaryKey: true
+    primaryKey: true,
   },
   type: {
     type: DataTypes.INTEGER(2),
     allowNull: false,
     references: {
       model: 'loginType',
-      key: 'id'
+      key: 'id',
     },
-    unique: true
+    unique: true,
   },
   passHash: {
     type: DataTypes.STRING(100),
-    allowNull: false
+    allowNull: false,
   },
   passSalt: {
     type: DataTypes.STRING(100),
-    allowNull: false
-  }
+    allowNull: false,
+  },
 }, {
-  tableName: 'loginId'
+  tableName: 'loginId',
 });
 
 export default loginId;

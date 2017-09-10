@@ -8,18 +8,18 @@ const merchandiseOption = Model.define('merchandiseOption', {
     type: DataTypes.INTEGER(11),
     allowNull: false,
     primaryKey: true,
-    autoIncrement: true
+    autoIncrement: true,
   },
   size: {
     type: DataTypes.STRING(20),
-    allowNull: false
+    allowNull: false,
   },
   nick: {
     type: DataTypes.STRING(20),
-    allowNull: true
-  }
+    allowNull: true,
+  },
 }, {
-  tableName: 'merchandiseOption'
+  tableName: 'merchandiseOption',
 });
 
 export default merchandiseOption;

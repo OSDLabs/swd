@@ -37,9 +37,10 @@ const studentQuery = {
     if (request.id) query.id = { $like: `%${request.id}%` };
     if (request.hostelPs) query.hostelPs = { $like: `%${request.hostelPs}%` };
     // if (request.Room) query.hostel_room = { $like: `%${request.Room}%` };
-    // if (request.Branch) query.id = { $like: `%${request.Branch}%` }; // TODO: Queries either for branch or ID; not both
+    // if (request.Branch) query.id = { $like: `%${request.Branch}%` };
+    // TODO: Queries either for branch or ID; not both
 
-    return Student.findAll({
+    return student.findAll({
       attributes: [
         'id',
         'studentName',

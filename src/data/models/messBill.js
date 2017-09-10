@@ -10,20 +10,20 @@ const messBill = Model.define('messBill', {
     primaryKey: true,
     references: {
       model: 'student',
-      key: 'id'
-    }
+      key: 'id',
+    },
   },
   month: {
     type: DataTypes.STRING(10),
     allowNull: false,
-    primaryKey: true
+    primaryKey: true,
   },
   amount: {
     type: DataTypes.INTEGER(11),
-    allowNull: false
-  }
+    allowNull: false,
+  },
 }, {
-  tableName: 'messBill'
+  tableName: 'messBill',
 });
 
 export default messBill;

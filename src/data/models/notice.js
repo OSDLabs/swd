@@ -8,38 +8,38 @@ const notice = Model.define('notice', {
     type: DataTypes.INTEGER(11),
     allowNull: false,
     primaryKey: true,
-    autoIncrement: true
+    autoIncrement: true,
   },
   title: {
     type: DataTypes.STRING(50),
-    allowNull: false
+    allowNull: false,
   },
   url: {
     type: DataTypes.STRING(100),
-    allowNull: false
+    allowNull: false,
   },
   categoryId: {
     type: DataTypes.INTEGER(11),
     allowNull: false,
     references: {
       model: 'noticeCategories',
-      key: 'id'
-    }
+      key: 'id',
+    },
   },
   published: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
   updated: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
   archived: {
     type: DataTypes.INTEGER(1),
-    allowNull: false
-  }
+    allowNull: false,
+  },
 }, {
-  tableName: 'notice'
+  tableName: 'notice',
 });
 
 export default notice;

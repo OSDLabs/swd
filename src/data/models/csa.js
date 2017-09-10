@@ -10,19 +10,19 @@ const csa = Model.define('csa', {
     primaryKey: true,
     references: {
       model: 'student',
-      key: 'id'
-    }
+      key: 'id',
+    },
   },
   title: {
     type: DataTypes.STRING(20),
-    allowNull: true
+    allowNull: true,
   },
   csaEmail: {
     type: DataTypes.STRING(30),
-    allowNull: true
-  }
+    allowNull: true,
+  },
 }, {
-  tableName: 'csa'
+  tableName: 'csa',
 });
 
 export default csa;

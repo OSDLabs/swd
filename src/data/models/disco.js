@@ -8,34 +8,34 @@ const disco = Model.define('disco', {
     type: DataTypes.INTEGER(11),
     allowNull: false,
     primaryKey: true,
-    autoIncrement: true
+    autoIncrement: true,
   },
   studentId: {
     type: DataTypes.STRING(10),
     allowNull: false,
     references: {
       model: 'student',
-      key: 'id'
-    }
+      key: 'id',
+    },
   },
   dateOfViolation: {
     type: DataTypes.DATE,
-    allowNull: true
+    allowNull: true,
   },
   subject: {
     type: DataTypes.STRING(30),
-    allowNull: true
+    allowNull: true,
   },
   action: {
     type: DataTypes.STRING(100),
-    allowNull: true
+    allowNull: true,
   },
   date: {
     type: DataTypes.DATE,
-    allowNull: true
-  }
+    allowNull: true,
+  },
 }, {
-  tableName: 'disco'
+  tableName: 'disco',
 });
 
 export default disco;

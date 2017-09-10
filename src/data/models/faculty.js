@@ -10,31 +10,31 @@ const faculty = Model.define('faculty', {
     primaryKey: true,
     references: {
       model: 'loginId',
-      key: 'loginId'
-    }
+      key: 'loginId',
+    },
   },
   name: {
     type: DataTypes.STRING(50),
-    allowNull: false
+    allowNull: false,
   },
   chamber: {
     type: DataTypes.STRING(10),
-    allowNull: true
+    allowNull: true,
   },
   office: {
     type: DataTypes.STRING(10),
-    allowNull: true
+    allowNull: true,
   },
   phone: {
     type: DataTypes.STRING(15),
-    allowNull: true
+    allowNull: true,
   },
   email: {
     type: DataTypes.STRING(50),
-    allowNull: false
-  }
+    allowNull: false,
+  },
 }, {
-  tableName: 'faculty'
+  tableName: 'faculty',
 });
 
 export default faculty;

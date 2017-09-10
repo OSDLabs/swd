@@ -10,68 +10,68 @@ const student = Model.define('student', {
     primaryKey: true,
     references: {
       model: 'loginId',
-      key: 'loginId'
-    }
+      key: 'loginId',
+    },
   },
   studentName: {
     type: DataTypes.STRING(50),
-    allowNull: false
+    allowNull: false,
   },
   bitsId: {
     type: DataTypes.STRING(15),
     allowNull: false,
-    unique: true
+    unique: true,
   },
   hostelPs: {
     type: DataTypes.INTEGER(1),
-    allowNull: false
+    allowNull: false,
   },
   gender: {
     type: DataTypes.STRING(1),
-    allowNull: true
+    allowNull: true,
   },
   bDay: {
     type: DataTypes.DATE,
-    allowNull: true
+    allowNull: true,
   },
   phone: {
     type: DataTypes.STRING(20),
-    allowNull: true
+    allowNull: true,
   },
   email: {
     type: DataTypes.STRING(50),
-    allowNull: true
+    allowNull: true,
   },
   address: {
     type: DataTypes.STRING(50),
-    allowNull: true
+    allowNull: true,
   },
   bloodGroup: {
     type: DataTypes.STRING(3),
-    allowNull: true
+    allowNull: true,
   },
   cgpa: {
     type: DataTypes.FLOAT,
-    allowNull: true
+    allowNull: true,
   },
   admit: {
     type: DataTypes.DATE,
-    allowNull: true
+    allowNull: true,
   },
   parentName: {
     type: DataTypes.STRING(50),
-    allowNull: true
+    allowNull: true,
   },
   parentPhone: {
     type: DataTypes.STRING(20),
-    allowNull: true
+    allowNull: true,
   },
   parentEmail: {
     type: DataTypes.STRING(50),
-    allowNull: true
-  }
+    allowNull: true,
+  },
 }, {
-  tableName: 'student'
+  tableName: 'student',
 });
 
 export default student;

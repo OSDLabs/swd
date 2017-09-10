@@ -10,20 +10,20 @@ const superintendent = Model.define('superintendent', {
     primaryKey: true,
     references: {
       model: 'faculty',
-      key: 'loginId'
-    }
+      key: 'loginId',
+    },
   },
   function: {
     type: DataTypes.STRING(20),
     allowNull: false,
-    primaryKey: true
+    primaryKey: true,
   },
   residence: {
     type: DataTypes.STRING(30),
-    allowNull: true
-  }
+    allowNull: true,
+  },
 }, {
-  tableName: 'superintendent'
+  tableName: 'superintendent',
 });
 
 export default superintendent;

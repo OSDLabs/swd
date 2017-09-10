@@ -8,38 +8,38 @@ const dayPass = Model.define('dayPass', {
     type: DataTypes.INTEGER(11),
     allowNull: false,
     primaryKey: true,
-    autoIncrement: true
+    autoIncrement: true,
   },
   studentId: {
     type: DataTypes.STRING(10),
     allowNull: false,
     references: {
       model: 'student',
-      key: 'id'
-    }
+      key: 'id',
+    },
   },
   date: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
   reason: {
     type: DataTypes.STRING(30),
-    allowNull: true
+    allowNull: true,
   },
   consentType: {
     type: DataTypes.STRING(20),
-    allowNull: true
+    allowNull: true,
   },
   approvedBy: {
     type: DataTypes.STRING(30),
-    allowNull: true
+    allowNull: true,
   },
   comment: {
     type: DataTypes.STRING(40),
-    allowNull: true
-  }
+    allowNull: true,
+  },
 }, {
-  tableName: 'dayPass'
+  tableName: 'dayPass',
 });
 
 export default dayPass;

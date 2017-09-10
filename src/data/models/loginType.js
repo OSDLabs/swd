@@ -8,15 +8,15 @@ const loginType = Model.define('loginType', {
     type: DataTypes.INTEGER(2),
     allowNull: false,
     primaryKey: true,
-    autoIncrement: true
+    autoIncrement: true,
   },
   type: {
     type: DataTypes.STRING(30),
     allowNull: false,
-    unique: true
-  }
+    unique: true,
+  },
 }, {
-  tableName: 'loginType'
+  tableName: 'loginType',
 });
 
 export default loginType;

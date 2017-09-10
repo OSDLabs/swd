@@ -10,19 +10,19 @@ const ps = Model.define('ps', {
     primaryKey: true,
     references: {
       model: 'student',
-      key: 'id'
-    }
+      key: 'id',
+    },
   },
   psStation: {
     type: DataTypes.STRING(30),
-    allowNull: true
+    allowNull: true,
   },
   thesis: {
     type: DataTypes.INTEGER(1),
-    allowNull: false
-  }
+    allowNull: false,
+  },
 }, {
-  tableName: 'ps'
+  tableName: 'ps',
 });
 
 export default ps;

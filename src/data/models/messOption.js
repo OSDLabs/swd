@@ -10,8 +10,8 @@ const messOption = Model.define('messOption', {
     primaryKey: true,
     references: {
       model: 'student',
-      key: 'id'
-    }
+      key: 'id',
+    },
   },
   monthYear: {
     type: DataTypes.STRING(10),
@@ -19,15 +19,15 @@ const messOption = Model.define('messOption', {
     primaryKey: true,
     references: {
       model: 'messOptionMonthYear',
-      key: 'monthYear'
-    }
+      key: 'monthYear',
+    },
   },
   mess: {
     type: DataTypes.STRING(1),
-    allowNull: true
-  }
+    allowNull: true,
+  },
 }, {
-  tableName: 'messOption'
+  tableName: 'messOption',
 });
 
 export default messOption;

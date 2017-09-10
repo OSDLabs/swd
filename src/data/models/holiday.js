@@ -7,18 +7,18 @@ const holiday = Model.define('holiday', {
   date: {
     type: DataTypes.DATE,
     allowNull: false,
-    primaryKey: true
+    primaryKey: true,
   },
   institute: {
     type: DataTypes.INTEGER(1),
-    allowNull: false
+    allowNull: false,
   },
   name: {
     type: DataTypes.STRING(50),
-    allowNull: false
-  }
+    allowNull: false,
+  },
 }, {
-  tableName: 'holiday'
+  tableName: 'holiday',
 });
 
 export default holiday;

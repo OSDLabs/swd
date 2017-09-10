@@ -10,23 +10,23 @@ const staff = Model.define('staff', {
     primaryKey: true,
     references: {
       model: 'loginId',
-      key: 'loginId'
-    }
+      key: 'loginId',
+    },
   },
   name: {
     type: DataTypes.STRING(50),
-    allowNull: false
+    allowNull: false,
   },
   type: {
     type: DataTypes.STRING(20),
-    allowNull: false
+    allowNull: false,
   },
   phone: {
     type: DataTypes.STRING(15),
-    allowNull: false
-  }
+    allowNull: false,
+  },
 }, {
-  tableName: 'staff'
+  tableName: 'staff',
 });
 
 export default staff;

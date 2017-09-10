@@ -7,18 +7,18 @@ const messOptionMonthYear = Model.define('messOptionMonthYear', {
   monthYear: {
     type: DataTypes.STRING(10),
     allowNull: false,
-    primaryKey: true
+    primaryKey: true,
   },
   dateOpen: {
     type: DataTypes.DATE,
-    allowNull: true
+    allowNull: true,
   },
   dateClose: {
     type: DataTypes.DATE,
-    allowNull: true
-  }
+    allowNull: true,
+  },
 }, {
-  tableName: 'messOptionMonthYear'
+  tableName: 'messOptionMonthYear',
 });
 
 export default messOptionMonthYear;

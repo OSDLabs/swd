@@ -10,19 +10,19 @@ const hostel = Model.define('hostel', {
     primaryKey: true,
     references: {
       model: 'student',
-      key: 'id'
-    }
+      key: 'id',
+    },
   },
   hostel: {
     type: DataTypes.STRING(10),
-    allowNull: false
+    allowNull: false,
   },
   room: {
     type: DataTypes.STRING(10),
-    allowNull: false
-  }
+    allowNull: false,
+  },
 }, {
-  tableName: 'hostel'
+  tableName: 'hostel',
 });
 
 export default hostel;

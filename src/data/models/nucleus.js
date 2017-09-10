@@ -10,11 +10,11 @@ const nucleus = Model.define('nucleus', {
     primaryKey: true,
     references: {
       model: 'faculty',
-      key: 'loginId'
-    }
-  }
+      key: 'loginId',
+    },
+  },
 }, {
-  tableName: 'nucleus'
+  tableName: 'nucleus',
 });
 
 export default nucleus;

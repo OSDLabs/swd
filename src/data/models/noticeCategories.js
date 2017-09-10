@@ -8,14 +8,14 @@ const noticeCategories = Model.define('noticeCategories', {
     type: DataTypes.INTEGER(11),
     allowNull: false,
     primaryKey: true,
-    autoIncrement: true
+    autoIncrement: true,
   },
   name: {
     type: DataTypes.STRING(100),
-    allowNull: false
-  }
+    allowNull: false,
+  },
 }, {
-  tableName: 'noticeCategories'
+  tableName: 'noticeCategories',
 });
 
 export default noticeCategories;
