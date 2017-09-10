@@ -3,7 +3,7 @@
 import DataTypes from 'sequelize';
 import Model from '../sequelize';
 
-const bonafide = Model.define('bonafide', {
+const dayPass = Model.define('dayPass', {
   id: {
     type: DataTypes.INTEGER(11),
     allowNull: false,
@@ -18,28 +18,28 @@ const bonafide = Model.define('bonafide', {
       key: 'id',
     },
   },
-  reqDate: {
+  date: {
     type: DataTypes.DATE,
-    allowNull: true,
-  },
-  reason: {
-    type: DataTypes.STRING(100),
-    allowNull: true,
-  },
-  otherReason: {
-    type: DataTypes.STRING(100),
-    allowNull: true,
-  },
-  year: {
-    type: DataTypes.INTEGER(4),
-    allowNull: true,
-  },
-  printed: {
-    type: DataTypes.INTEGER(1),
     allowNull: false,
   },
+  reason: {
+    type: DataTypes.STRING(30),
+    allowNull: true,
+  },
+  consentType: {
+    type: DataTypes.STRING(20),
+    allowNull: true,
+  },
+  approvedBy: {
+    type: DataTypes.STRING(30),
+    allowNull: true,
+  },
+  comment: {
+    type: DataTypes.STRING(40),
+    allowNull: true,
+  },
 }, {
-  tableName: 'bonafide',
+  tableName: 'dayPass',
 });
 
-export default bonafide;
+export default dayPass;

@@ -3,7 +3,7 @@
 import DataTypes from 'sequelize';
 import Model from '../sequelize';
 
-const nucleus = Model.define('nucleus', {
+const warden = Model.define('warden', {
   facultyId: {
     type: DataTypes.STRING(10),
     allowNull: false,
@@ -13,8 +13,17 @@ const nucleus = Model.define('nucleus', {
       key: 'loginId',
     },
   },
+  hostel: {
+    type: DataTypes.STRING(10),
+    allowNull: false,
+    primaryKey: true,
+  },
+  residence: {
+    type: DataTypes.STRING(10),
+    allowNull: true,
+  },
 }, {
-  tableName: 'nucleus',
+  tableName: 'warden',
 });
 
-export default nucleus;
+export default warden;

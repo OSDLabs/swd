@@ -3,18 +3,18 @@
 import DataTypes from 'sequelize';
 import Model from '../sequelize';
 
-const nucleus = Model.define('nucleus', {
-  facultyId: {
+const dayScholar = Model.define('dayScholar', {
+  studentId: {
     type: DataTypes.STRING(10),
     allowNull: false,
     primaryKey: true,
     references: {
-      model: 'faculty',
-      key: 'loginId',
+      model: 'student',
+      key: 'id',
     },
   },
 }, {
-  tableName: 'nucleus',
+  tableName: 'dayScholar',
 });
 
-export default nucleus;
+export default dayScholar;

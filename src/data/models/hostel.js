@@ -3,8 +3,8 @@
 import DataTypes from 'sequelize';
 import Model from '../sequelize';
 
-const csa = Model.define('csa', {
-  studentId: {
+const hostel = Model.define('hostel', {
+  id: {
     type: DataTypes.STRING(10),
     allowNull: false,
     primaryKey: true,
@@ -13,16 +13,16 @@ const csa = Model.define('csa', {
       key: 'id',
     },
   },
-  title: {
-    type: DataTypes.STRING(20),
-    allowNull: true,
+  hostel: {
+    type: DataTypes.STRING(10),
+    allowNull: false,
   },
-  csaEmail: {
-    type: DataTypes.STRING(30),
-    allowNull: true,
+  room: {
+    type: DataTypes.STRING(10),
+    allowNull: false,
   },
 }, {
-  tableName: 'csa',
+  tableName: 'hostel',
 });
 
-export default csa;
+export default hostel;

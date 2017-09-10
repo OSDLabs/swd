@@ -3,7 +3,7 @@
 import DataTypes from 'sequelize';
 import Model from '../sequelize';
 
-const csa = Model.define('csa', {
+const messBill = Model.define('messBill', {
   studentId: {
     type: DataTypes.STRING(10),
     allowNull: false,
@@ -13,16 +13,17 @@ const csa = Model.define('csa', {
       key: 'id',
     },
   },
-  title: {
-    type: DataTypes.STRING(20),
-    allowNull: true,
+  month: {
+    type: DataTypes.STRING(10),
+    allowNull: false,
+    primaryKey: true,
   },
-  csaEmail: {
-    type: DataTypes.STRING(30),
-    allowNull: true,
+  amount: {
+    type: DataTypes.INTEGER(11),
+    allowNull: false,
   },
 }, {
-  tableName: 'csa',
+  tableName: 'messBill',
 });
 
-export default csa;
+export default messBill;

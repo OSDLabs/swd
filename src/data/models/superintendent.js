@@ -3,30 +3,27 @@
 import DataTypes from 'sequelize';
 import Model from '../sequelize';
 
-const staff = Model.define('staff', {
-  loginId: {
+const superintendent = Model.define('superintendent', {
+  facultyId: {
     type: DataTypes.STRING(10),
     allowNull: false,
     primaryKey: true,
     references: {
-      model: 'loginId',
+      model: 'faculty',
       key: 'loginId',
     },
   },
-  name: {
-    type: DataTypes.STRING(50),
-    allowNull: false,
-  },
-  type: {
+  function: {
     type: DataTypes.STRING(20),
     allowNull: false,
+    primaryKey: true,
   },
-  phone: {
-    type: DataTypes.STRING(15),
-    allowNull: false,
+  residence: {
+    type: DataTypes.STRING(30),
+    allowNull: true,
   },
 }, {
-  tableName: 'staff',
+  tableName: 'superintendent',
 });
 
-export default staff;
+export default superintendent;

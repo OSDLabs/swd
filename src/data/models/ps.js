@@ -3,8 +3,8 @@
 import DataTypes from 'sequelize';
 import Model from '../sequelize';
 
-const csa = Model.define('csa', {
-  studentId: {
+const ps = Model.define('ps', {
+  id: {
     type: DataTypes.STRING(10),
     allowNull: false,
     primaryKey: true,
@@ -13,16 +13,16 @@ const csa = Model.define('csa', {
       key: 'id',
     },
   },
-  title: {
-    type: DataTypes.STRING(20),
-    allowNull: true,
-  },
-  csaEmail: {
+  psStation: {
     type: DataTypes.STRING(30),
     allowNull: true,
   },
+  thesis: {
+    type: DataTypes.INTEGER(1),
+    allowNull: false,
+  },
 }, {
-  tableName: 'csa',
+  tableName: 'ps',
 });
 
-export default csa;
+export default ps;

@@ -3,7 +3,7 @@
 import DataTypes from 'sequelize';
 import Model from '../sequelize';
 
-const staff = Model.define('staff', {
+const faculty = Model.define('faculty', {
   loginId: {
     type: DataTypes.STRING(10),
     allowNull: false,
@@ -17,16 +17,24 @@ const staff = Model.define('staff', {
     type: DataTypes.STRING(50),
     allowNull: false,
   },
-  type: {
-    type: DataTypes.STRING(20),
-    allowNull: false,
+  chamber: {
+    type: DataTypes.STRING(10),
+    allowNull: true,
+  },
+  office: {
+    type: DataTypes.STRING(10),
+    allowNull: true,
   },
   phone: {
     type: DataTypes.STRING(15),
+    allowNull: true,
+  },
+  email: {
+    type: DataTypes.STRING(50),
     allowNull: false,
   },
 }, {
-  tableName: 'staff',
+  tableName: 'faculty',
 });
 
-export default staff;
+export default faculty;
