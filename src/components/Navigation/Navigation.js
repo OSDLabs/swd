@@ -27,7 +27,7 @@ class Navigation extends React.Component {
   static propTypes = {
     isLoggedIn: PropTypes.bool.isRequired,
     toggleFunc: PropTypes.func.isRequired,
-    drawerOpen: PropTypes.bool.isRequired,
+    sideBarOpen: PropTypes.bool.isRequired,
   };
 
   state = {
@@ -88,11 +88,11 @@ class Navigation extends React.Component {
       <Toolbar>
         <ToolbarGroup>
           <RaisedButton
-            label={this.props.drawerOpen ? 'Close' : 'Open'}
+            label={this.props.sideBarOpen ? 'Close' : 'Open'}
             onTouchTap={this.props.toggleFunc}
             primary
           />
-          { !this.props.drawerOpen ? (
+          { !this.props.sideBarOpen ? (
             <a href="/">
               <img
                 src={logoUrl}

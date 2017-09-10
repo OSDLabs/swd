@@ -16,17 +16,17 @@ class Layout extends React.Component {
   };
 
   state = {
-    drawerOpen: true,
+    sideBarOpen: true,
   };
 
-  handleDrawerToggle = () => {
-    this.setState({ drawerOpen: !this.state.drawerOpen });
+  handleSideBarToggle = () => {
+    this.setState({ sideBarOpen: !this.state.sideBarOpen });
   };
 
   render() {
     const contentBodyStyle = { transition: 'margin-left 450ms cubic-bezier(0.23, 1, 0.32, 1)' };
 
-    if (this.state.drawerOpen && this.props.isLoggedIn) {
+    if (this.state.sideBarOpen && this.props.isLoggedIn) {
       contentBodyStyle.marginLeft = 256;
     } else {
       contentBodyStyle.marginLeft = 0;
@@ -37,8 +37,8 @@ class Layout extends React.Component {
         <div>
           <div style={contentBodyStyle}>
             <Header
-              toggleFunc={this.handleDrawerToggle}
-              drawerOpen={this.state.drawerOpen}
+              toggleFunc={this.handleSideBarToggle}
+              sideBarOpen={this.state.sideBarOpen}
               isLoggedIn={this.props.isLoggedIn}
             />
             {this.props.children}
@@ -49,7 +49,7 @@ class Layout extends React.Component {
 
           { this.props.isLoggedIn ? (
             <Sidebar
-              open={this.state.drawerOpen}
+              open={this.state.sideBarOpen}
             />
         ) : null }
 

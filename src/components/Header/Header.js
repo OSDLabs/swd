@@ -19,7 +19,7 @@ class Header extends React.Component {
   static propTypes = {
     isLoggedIn: PropTypes.bool.isRequired,
     toggleFunc: PropTypes.func.isRequired,
-    drawerOpen: PropTypes.bool.isRequired,
+    sideBarOpen: PropTypes.bool.isRequired,
   };
 
   render() {
@@ -27,7 +27,7 @@ class Header extends React.Component {
       <div className={s.root}>
         <Navigation
           toggleFunc={this.props.toggleFunc}
-          drawerOpen={this.props.drawerOpen}
+          sideBarOpen={this.props.sideBarOpen}
           isLoggedIn={this.props.isLoggedIn}
         />
         <div className={s.container}>
