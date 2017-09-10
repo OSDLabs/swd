@@ -1,6 +1,8 @@
 # SWD-BITS Goa
 
-The main repo for the development of the SWD website of BITS Goa.
+[![Build Status](https://travis-ci.org/OSDLabs/swd.svg?branch=master)](https://travis-ci.org/OSDLabs/swd) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/325e841aac3d435aa637538f975af7d1)](https://www.codacy.com/app/SebastinSanty/swd?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=OSDLabs/swd&amp;utm_campaign=Badge_Grade) [![Code Climate](https://codeclimate.com/github/OSDLabs/swd/badges/gpa.svg)](https://codeclimate.com/github/OSDLabs/swd) [![Coverage Status](https://coveralls.io/repos/github/OSDLabs/swd/badge.svg?branch=master)](https://coveralls.io/github/OSDLabs/swd?branch=master) [![Known Vulnerabilities](https://snyk.io/test/github/osdlabs/swd/badge.svg)](https://snyk.io/test/github/osdlabs/swd)
+
+The main repository for the development of SWD website of BITS Goa.
 
 ## Setting up
 
