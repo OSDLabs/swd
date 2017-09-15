@@ -1,69 +1,68 @@
-import {
-    // GraphQLObjectType as ObjectType,
-    GraphQLString as StringType,
-    // GraphQLNonNull as NonNull,
-    GraphQLList as List,
-} from 'graphql';
-
-import studentType from '../types/studentType';
+import studentType from '../types/StudentType';
 import student from '../models/student';
 
 
-const studentQuery = {
+import {
+    GraphQLObjectType as ObjectType,
+    GraphQLString as StringType,
+    GraphQLNonNull as NonNull,
+    GraphQLList as List,
+} from 'graphql';
+
+
+const studentquery = {
   type: new List(studentType),
   args: {
-    name: {
+    studentName: {
       type: StringType,
     },
-    id: {
+    bitsId: {
       type: StringType,
     },
-    hostelPs: {
+    hostel: {
       type: StringType,
     },
-    // room: {
-    //   type: StringType,
-    // },
-    // branch: {
-    //   type: StringType,
-    // },
+    hostelRoom: {
+      type: StringType,
+    },
+    branch: {
+      type: StringType,
+    },
   },
 
   resolve(root, request) {
         // constructs the where clause for sql
         // TODO: Bad code; someone help
     const query = {};
-    if (request.name) query.name = { $like: `%${request.name}%` };
-    if (request.id) query.id = { $like: `%${request.id}%` };
-    if (request.hostelPs) query.hostelPs = { $like: `%${request.hostelPs}%` };
-    // if (request.Room) query.hostel_room = { $like: `%${request.Room}%` };
-    // if (request.Branch) query.id = { $like: `%${request.Branch}%` };
-    // TODO: Queries either for branch or ID; not both
+    if (request.studentName) query.studentName = { $like: `%${request.studentName}%` };
+    if (request.bitsId) query.bitsId = { $like: `%${request.bitsId}%` };
+    if (request.hostel) query.hostel = { $like: `%${request.hostel}%` };
+    if (request.hostelRoom) query.hostelRoom = { $like: `%${request.hostelRoom}%` };
+    if (request.branch) query.bitsId = { $like: `%${request.branch}%` }; // TODO: Queries either for branch or ID; not both
 
     return student.findAll({
       attributes: [
-        'id',
-        'studentName',
         'bitsId',
+        'studentName',
         'gender',
         'hostel',
+        'hostelRoom',
         'admit',
       ],
       where: query,
     }).then(res =>
             res.map(val => ({
-              id: val.get().id,
-              name: val.get().name,
               bitsId: val.get().bitsId,
+              studentName: val.get().studentName,
               gender: val.get().gender,
-              // hostel: {
-              //   hostelName: val.get().hostel,
-              //   hostelRoom: val.get().hostel_room,
-              // },
+              hostel: {
+                hostelName: val.get().hostel,
+                hostelRoom: val.get().hostelRoom,
+              },
               admit: val.get().admit,
             })),
         );
   },
 };
 
-export default studentQuery;
+export default studentquery;

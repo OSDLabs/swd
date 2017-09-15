@@ -14,22 +14,22 @@ import {
   GraphQLNonNull as NonNull,
 } from 'graphql';
 
-// const hostelType = new ObjectType({
-//   name: 'Hostel',
-//   fields: {
-//     hostelName: { type: StringType },
-//     hostelRoom: { type: StringType },
-//   },
-// });
+const HostelType = new ObjectType({
+  name: 'hostel',
+  fields: {
+    hostelName: { type: StringType },
+    hostelRoom: { type: StringType },
+  },
+});
 
 const studentType = new ObjectType({
-  name: 'Student',
+  name: 'student',
   fields: {
     id: { type: StringType },
     bitsId: { type: new NonNull(ID) },
-    name: { type: new NonNull(StringType) },
+    studentName: { type: new NonNull(StringType) },
     gender: { type: StringType },
-    // hostel: { type: HostelType },
+    hostel: { type: HostelType },
     admit: { type: StringType },
   },
 });

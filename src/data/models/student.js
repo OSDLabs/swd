@@ -22,9 +22,13 @@ const student = Model.define('student', {
     allowNull: false,
     unique: true,
   },
-  hostelPs: {
-    type: DataTypes.INTEGER(1),
-    allowNull: false,
+  hostel: {
+    type: DataTypes.STRING(20),
+    allowNull: true,
+  },
+  hostelRoom: {
+    type: DataTypes.STRING(20),
+    allowNull: true,
   },
   gender: {
     type: DataTypes.STRING(1),
