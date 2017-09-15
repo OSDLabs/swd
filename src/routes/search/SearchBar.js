@@ -26,17 +26,6 @@ class SearchBar extends React.Component {
     onUserSearch: PropTypes.func.isRequired,
   }
 
-  getItems(values, keys = false) {
-        // returns Select field items acc to the values sent
-    return values.map(el => (
-      <MenuItem
-        key={keys ? el.value : el}
-        value={keys ? el.name : el}
-        primaryText={keys ? el.name : el}
-      />
-        ));
-  }
-
   constructor(props) {
     super(props);
     this.state = {
@@ -53,6 +42,16 @@ class SearchBar extends React.Component {
     this.setSelectField.bind(this, 'branch');
   }
 
+  getItems(values, keys = false) {
+        // returns Select field items acc to the values sent
+    return values.map(el => (
+      <MenuItem
+        key={keys ? el.value : el}
+        value={keys ? el.name : el}
+        primaryText={keys ? el.name : el}
+      />
+        ));
+  }
 
   setTextField(name, e, val) {
     const update = {};
