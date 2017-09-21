@@ -41,15 +41,15 @@ for (var item in transform) {
         // Load fields in order
         let values = '';
         let count = 0;
-        for (var old in transform[item].fields) {
+        for (var newField in transform[item].fields) {
           if (count != 0) {
             query += ', ';
             values += ', ';
           }
-          query += transform[item].fields[old];
+          query += newField;
 
           // Add various data cleaning techniques here
-          values += '"' + res[i][old] + '"';
+          values += '"' + res[i][transform[item].fields[newField]] + '"';
           count++;
         }
 

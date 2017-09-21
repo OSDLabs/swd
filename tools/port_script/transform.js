@@ -6,9 +6,9 @@ module.exports = {
       new: 'student'
     },
     fields: {
-      login_id: 'id',
-      student_name: 'studentName',
-      id: 'bitsId'
+      id: 'login_id',
+      studentName: 'student_name',
+      bitsId: 'id'
     }
   }
 }
