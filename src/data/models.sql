@@ -96,7 +96,7 @@ CREATE TABLE `lateComer` (
 
 CREATE TABLE `loginId` (
 	`loginId` varchar(10) NOT NULL,
-	`type` INT(2) NOT NULL UNIQUE,
+	`type` INT(2) NOT NULL,
 	`passHash` varchar(100) NOT NULL,
 	`passSalt` varchar(100) NOT NULL,
 	PRIMARY KEY (`loginId`)

@@ -16,7 +16,6 @@ const loginId = Model.define('loginId', {
       model: 'loginType',
       key: 'id',
     },
-    unique: true,
   },
   passHash: {
     type: DataTypes.STRING(100),
