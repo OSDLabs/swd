@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "fill": "node fill.js",
+    "clean": "node clean.js"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "mysql": "^2.14.1"
+  }
+}
