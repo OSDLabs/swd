@@ -1,3 +1,8 @@
+const login = {
+  student: 1,
+  faculty: 2,
+  staff: 3,
+};
 
 // Configuration for the database
 module.exports = {
@@ -9,6 +14,29 @@ module.exports = {
     destination: 'new_db_swd',
   },
   rules: [
+
+    // loginType
+    {
+      query: `INSERT INTO loginType (id, type) VALUES \
+        (${login.student}, "student"), \
+        (${login.faculty}, "faculty"), \
+        (${login.staff}, "staff");`,
+    },
+
+    // loginId
+    // {
+      // table: {
+        // old: login_ids,
+        // new: loginId,
+      // },
+      // fields: {
+        // loginId: 'login_id',
+        // type: if {
+        // },
+      // },
+    // },
+
+    // student
     {
       table: {
         old: {
