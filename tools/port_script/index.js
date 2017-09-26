@@ -2,9 +2,9 @@
 const mysql = require('mysql');
 const _ = require('lodash');
 const config = require('./config.js');
-const transform = require('./transform.js');
 const util = require('./util.js');
 
+const rules = config.rules;
 const DEBUG = 1;
 
 // Connect to the source database
@@ -33,16 +33,15 @@ dest.connect((err) => {
 
 
 // Start execution
-_.forEach(transform, (rule) => {
+_.forEach(rules, (rule) => {
   let selectQuery = null;
   if (rule.table.old.union) {
-    console.log('union');
-    selectQuery = `SELECT * FROM ${rule.table.old.union[0]} INNER JOIN (`;
+    selectQuery = 'SELECT * FROM ';
 
     let count = 0;
     _.forEach(rule.table.old.union, (table) => {
       if (count === 0) {
-        console.log('hi');
+        selectQuery += `${table} INNER JOIN (`;
       } else if (count === 1) {
         selectQuery += table;
       } else {
@@ -57,7 +56,6 @@ _.forEach(transform, (rule) => {
   }
   DEBUG && (selectQuery += ' LIMIT 5');
   selectQuery += ';';
-  console.log(selectQuery);
 
   // Run the query
   source.query(selectQuery, (err, tuples) => {
