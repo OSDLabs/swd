@@ -6,6 +6,6 @@ module.exports = {
   password: 'swd_base',
   db: {
     source: 'db_swd',
-    destination: 'new_db_swd'
-  }
-}
+    destination: 'new_db_swd',
+  },
+};
