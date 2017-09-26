@@ -17,6 +17,7 @@ module.exports = {
 
     // loginType
     {
+      skip: 'true',
       query: `INSERT INTO loginType (id, type) VALUES \
         (${login.student}, "student"), \
         (${login.faculty}, "faculty"), \
@@ -24,20 +25,34 @@ module.exports = {
     },
 
     // loginId
-    // {
-      // table: {
-        // old: login_ids,
-        // new: loginId,
-      // },
-      // fields: {
-        // loginId: 'login_id',
-        // type: if {
-        // },
-      // },
-    // },
+    {
+      table: {
+        old: 'login_ids',
+        new: 'loginId',
+      },
+      fields: {
+        loginId: 'login_id',
+        type: {
+          switch: {
+            condition: 'type',
+            cases: {
+              student: login.student,
+              faculty: login.faculty,
+              warden: login.faculty,
+              staff: login.staff,
+              security: login.staff,
+              superintend: login.staff,
+            },
+          },
+        },
+        passHash: { value: 'PASSWORD HASH HERE' },
+        passSalt: { value: 'PASSWORD SALT HERE' },
+      },
+    },
 
     // student
     {
+      skip: true,
       table: {
         old: {
           union: ['student_info', 'cgpa'],

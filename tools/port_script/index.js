@@ -34,13 +34,13 @@ dest.connect((err) => {
 
 // Start execution
 _.forEach(rules, (rule) => {
-  if (rule.query) {
+  if (rule.skip) {
+    console.log(`Skipping ${rule.query || rule.table.new}`);
+  } else if (rule.query) {
     // if a rule is just a query, execute it
     DEBUG && console.log(`${rule.query}\n`);
     DEBUG || dest.query(rule.query, (error) => {
-      if (error) { throw error; } else {
-        console.log(rule.query);
-      }
+      if (error) { throw error; } else { console.log(rule.query); }
     });
   } else {
     // Get data from the source table
