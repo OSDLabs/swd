@@ -18,6 +18,7 @@
   },
   "homepage": "https://gist.github.com/3677845cf74d5018c7706701bb0a851c",
   "dependencies": {
+    "lodash": "^4.17.4",
     "mysql": "^2.14.1"
   }
 }
