@@ -1,7 +1,5 @@
 const _ = require('lodash');
 
-const limit = 'LIMIT 5';
-
 /**
  * Function to evaluate conditions recursively
  * @param condition Object  The condition to evaluate
@@ -24,11 +22,9 @@ function conditionEval(condition, tuple) {
         throw new Error('Operator not supported');
     }
   } else if (condition.or) {
-    // TODO: make this variable
-    return conditionEval(condition.or[0], tuple) || conditionEval(condition.or[1], tuple);
+    return _.some(condition.or, obj => conditionEval(obj, tuple));
   } else if (condition.and) {
-    // TODO: make this variable
-    return conditionEval(condition.or[0], tuple) && conditionEval(condition.or[1], tuple);
+    return _.every(condition.and, obj => conditionEval(obj, tuple));
   } else {
     throw new Error('Could not find eval or a condition');
   }
@@ -74,7 +70,7 @@ function evalExp(field, tuple) {
     // send the value as it is
     return field.value;
   }
-    // evaluate a value
+  // evaluate a value
   return tuple[field];
 }
 
@@ -84,13 +80,31 @@ function evalExp(field, tuple) {
  * @return          String  The generated SELECT query
  */
 function getSelectQuery(block) {
+  let table;
+  let where = '';
+  let limit = '';
+
+  // Get table
   if (block.union) {
-    // if there's a union field
-    return `SELECT * FROM \
-      ${block.union[0]} INNER JOIN (${_.join(_.drop(block.union, 1), ',')}) \
-      ON (${block.on}) ${limit};`;
+    table = `${block.union[0]} INNER JOIN \
+      (${_.join(_.drop(block.union, 1), ',')}) ON (${block.on})`;
+  } else if (block.table) {
+    table = block.table;
+  } else {
+    table = block;
   }
-  return `SELECT * FROM ${block} ${limit};`;
+
+  // Get where clause
+  if (block.where) {
+    where = `WHERE ${block.where}`;
+  }
+
+  // Get limit clause
+  if (block.limit) {
+    limit = `LIMIT ${block.limit}`;
+  }
+
+  return `SELECT * FROM ${table} ${where} ${limit};`;
 }
 
 // Export the modules

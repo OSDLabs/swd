@@ -17,7 +17,6 @@ module.exports = {
 
     // loginType
     {
-      skip: 'true',
       query: `INSERT INTO loginType (id, type) VALUES \
         (${login.student}, "student"), \
         (${login.faculty}, "faculty"), \
@@ -26,6 +25,7 @@ module.exports = {
 
     // loginId
     {
+      skip: true,
       table: {
         old: 'login_ids',
         new: 'loginId',
@@ -52,7 +52,6 @@ module.exports = {
 
     // student
     {
-      skip: true,
       table: {
         old: {
           union: ['student_info', 'cgpa'],
@@ -69,7 +68,7 @@ module.exports = {
             condition: {
               or: [
                 { eval: { operator: '===', first_attribute: 'hostel', second_value: 'PS2' } },
-                { eval: { operator: '===', first_attribute: 'hostel', second_value: 'THESIS' } },
+                { eval: { operator: '===', first_attribute: 'hostel', second_value: 'Thesis' } },
               ],
             },
             pass: { value: 1 },
@@ -89,5 +88,23 @@ module.exports = {
         parentEmail: 'father_email',
       },
     },
+
+    // hostel
+    {
+      table: {
+        old: {
+          table: 'student_info',
+          // TODO: find out what has to be done with the rest of the values
+          where: 'hostel != "Thesis" && hostel != "" && hostel != "Qtrs" && hostel != "Graduate" && hostel != "PS2" && hostel != "Temp Withd" && hostel != "DAY SCHOLAR"',
+        },
+        new: 'hostel',
+      },
+      fields: {
+        id: 'login_id',
+        hostel: 'hostel',
+        room: 'hostel_room',
+      },
+    },
+
   ],
 };

@@ -1,4 +1,6 @@
 /* eslint-disable no-unused-expressions */
+/* eslint-disable no-param-reassign */
+
 const mysql = require('mysql');
 const _ = require('lodash');
 const config = require('./config.js');
@@ -44,6 +46,7 @@ _.forEach(rules, (rule) => {
     });
   } else {
     // Get data from the source table
+    DEBUG && (rule.table.old.limit = 5);
     source.query(util.getSelectQuery(rule.table.old), (err, tuples) => {
       if (err) { throw err; }
       console.log(`\nCopying table ${rule.table.new}\n`);
