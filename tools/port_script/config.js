@@ -95,7 +95,13 @@ module.exports = {
         old: {
           table: 'student_info',
           // TODO: find out what has to be done with the rest of the values
-          where: 'hostel != "Thesis" && hostel != "" && hostel != "Qtrs" && hostel != "Graduate" && hostel != "PS2" && hostel != "Temp Withd" && hostel != "DAY SCHOLAR"',
+          where: 'hostel != "Thesis" \
+            && hostel != "" \
+            && hostel != "Qtrs" \
+            && hostel != "Graduate" \
+            && hostel != "PS2" \
+            && hostel != "Temp Withd" \
+            && hostel != "DAY SCHOLAR"',
         },
         new: 'hostel',
       },
@@ -103,6 +109,134 @@ module.exports = {
         id: 'login_id',
         hostel: 'hostel',
         room: 'hostel_room',
+      },
+    },
+
+    // bonafide
+    {
+      table: {
+        old: 'bonafide',
+        new: 'bonafide',
+      },
+      fields: {
+        id: 'index_',
+        studentId: 'login_id',
+        reqDate: 'req_date',
+        reason: 'reason',
+        otherReason: 'other_reason',
+        year: 'year',
+        printed: { value: '0' },
+      },
+    },
+
+    // day scholars
+    {
+      table: {
+        new: 'dayScholar',
+        old: 'day_scholars',
+      },
+      fields: {
+        studentId: 'login_id',
+      },
+    },
+
+    // day pass
+    {
+      table: {
+        new: 'dayPass',
+        old: 'daypass',
+      },
+      fields: {
+        id: 'daypass_id',
+        studentId: 'login_id',
+        date: 'Date',
+        reason: 'Reason',
+        consentType: 'consent_type',
+        approvedBy: 'ApprovedBy',
+        comment: 'Comment',
+      },
+    },
+
+    // csa
+    {
+      table: {
+        new: 'csa',
+        old: {
+          union: ['csa', 'student_info'],
+          on: 'student_info.student_name = csa.name',
+        },
+      },
+      fields: {
+        studentId: 'login_id',
+        title: 'title',
+        csaEmail: 'email',
+      },
+    },
+
+    // disco
+    {
+      skip: true,
+      table: {
+        new: 'disco',
+        old: 'discp',
+      },
+      fields: {
+        studentId: 'login_id',
+        dateOfViolation: 'date',
+        subject: 'heading',
+        action: 'action',
+      },
+    },
+
+    // faculty
+    {
+      table: {
+        new: 'faculty',
+        old: 'wardens',
+      },
+      fields: {
+        loginId: 'login_id',
+        name: 'name',
+        chamber: 'chamber',
+        office: 'office',
+        phone: { value: '' },
+        email: { value: '' },
+      },
+    },
+
+    // facultyIncharge
+    {
+      table: {
+        new: 'facultyIncharge',
+        old: 'faculty_incharge',
+      },
+      fields: {
+        facultyId: 'login_id',
+        function: 'function',
+      },
+    },
+
+    // holiday
+    {
+      table: {
+        new: 'holiday',
+        old: 'holidays',
+      },
+      fields: {
+        date: 'HolDate',
+        institute: '0',
+        name: { value: 'unknown' },
+      },
+    },
+    {
+      table: {
+        new: 'holiday',
+        old: 'institure_holidays',
+      },
+      fields: {
+        date: 'date',
+        institute: '1',
+        name: { value: 'unknown' },
       },
     },
 
