@@ -10,6 +10,7 @@
 import 'isomorphic-fetch';
 import path from 'path';
 import express from 'express';
+import Promise from 'bluebird';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import expressJwt from 'express-jwt';
@@ -102,11 +103,11 @@ app.use('/graphql', expressGraphQL(req => ({
 app.get('*', async (req, res, next) => {
   try {
     const css = new Set();
-    const client = new ApolloClient({
-      ssrMode: true, // serverside rendering
+    const apolloClient = new ApolloClient({
       networkInterface: createNetworkInterface({
         uri: 'http://localhost:3001/graphql',
       }),
+      queryDeduplication: true,
     });
     // Global (context) variables that can be easily accessed from any React component
     // https://facebook.github.io/react/docs/context.html
@@ -120,7 +121,7 @@ app.get('*', async (req, res, next) => {
       // Sending Material-UI theme through context
       muiTheme,
       //send apollo client in the context
-
+      //client: apolloClient,
     };
 
     const route = await router.resolve({
@@ -134,13 +135,15 @@ app.get('*', async (req, res, next) => {
     }
     const component = (
       <App context={context}>
-        <ApolloProvider client={client}>
+        <ApolloProvider client={apolloClient}>
           {route.component}
         </ApolloProvider>
       </App>
     );
 
     await getDataFromTree(component);
+
+    await Promise.delay(0);
 
     const data = { ...route };
     data.children = ReactDOM.renderToString(component);

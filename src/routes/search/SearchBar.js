@@ -5,9 +5,10 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 
 
-const hostels = ['AH1', 'AH2', 'AH3', 'AH4', 'AH5', 'AH6', 'AH7', 'AH8', 'AH9', 'CH1', 'CH2', 'CH3', 'CH4', 'CH5', 'CH6'];
+const hostels = [null, 'AH1', 'AH2', 'AH3', 'AH4', 'AH5', 'AH6', 'AH7', 'AH8', 'AH9', 'CH1', 'CH2', 'CH3', 'CH4', 'CH5', 'CH6'];
 
 const branches = [
+  { value: null, name: '' },
   { value: 'A1', name: 'Chemical' },
   { value: 'A3', name: 'EEE' },
   { value: 'A4', name: 'Mechanical' },
@@ -20,21 +21,21 @@ const branches = [
   { value: 'B5', name: 'MSc Physics' },
 ];
 
+function getItems(values, keys = false) {
+        // returns Select field items acc to the values sent
+  return values.map(el => (
+    <MenuItem
+      key={keys ? el.name : el}
+      value={keys ? el.value : el}
+      primaryText={keys ? el.name : el}
+    />
+        ));
+}
+
 class SearchBar extends React.Component {
   static propTypes = {
         // fucntion to pass back queries to parent
     onUserSearch: PropTypes.func.isRequired,
-  }
-
-  static getItems(values, keys = false) {
-        // returns Select field items acc to the values sent
-    return values.map(el => (
-      <MenuItem
-        key={keys ? el.value : el}
-        value={keys ? el.name : el}
-        primaryText={keys ? el.name : el}
-      />
-        ));
   }
 
   constructor(props) {
@@ -46,11 +47,6 @@ class SearchBar extends React.Component {
       Branch: null,
       Hostel: null,
     };
-    this.setTextField = this.setTextField.bind(this, 'Name');
-    this.setTextField = this.setTextField.bind(this, 'ID');
-    this.setSelectField = this.setSelectField.bind(this, 'Hostel');
-    this.setTextField = this.setTextField.bind(this, 'Room');
-    this.setSelectField.bind(this, 'Branch');
   }
 
 
@@ -73,28 +69,28 @@ class SearchBar extends React.Component {
         // TODO: Validation so that atleast one of the fields are no empty on submit
 
     return (
-      <form className="searchbar">
+      <form className="searchbar" onSubmit={e => this.props.onUserSearch(this.state, e)}>
         <TextField
           floatingLabelText="Name"
           underlineStyle={{ display: 'none' }}
-          onChange={this.setTextField}
+          onChange={this.setTextField.bind(this, 'Name')}
         />
 
         <TextField
           floatingLabelText="ID No"
           underlineStyle={{ display: 'none' }}
-          onChange={this.setTextField}
+          onChange={this.setTextField.bind(this, 'ID')}
         />
 
         <br />
 
         <SelectField
-          onChange={this.setSelectField}
+          onChange={this.setSelectField.bind(this, 'Hostel')}
           floatingLabelText="Hostel"
           value={this.state.Hostel}
           autoWidth
         >
-          {this.getItems(hostels)}
+          {getItems(hostels)}
         </SelectField>
 
         <br />
@@ -102,26 +98,26 @@ class SearchBar extends React.Component {
         <TextField
           floatingLabelText="Room No"
           underlineStyle={{ display: 'none' }}
-          onChange={this.setTextField}
+          onChange={this.setTextField.bind(this, 'Room')}
         />
 
         <br />
 
         <SelectField
-          onChange={this.setSelectField}
+          onChange={this.setSelectField.bind(this, 'Branch')}
           floatingLabelText="Branch"
           value={this.state.Branch}
           autoWidth
         >
-          {this.getItems(branches, true)}
+          {getItems(branches, true)}
         </SelectField>
 
         <br />
 
         <FlatButton
+          type="submit"
           label="Search"
           primary
-          onTouchTap={e => this.props.onUserSearch(this.state, e)}
         />
       </form>
     );

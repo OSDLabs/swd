@@ -31,11 +31,15 @@ import { ErrorReporter, deepForceUpdate } from './core/devUtils';
 
 /* eslint-disable global-require */
 
-const client = new ApolloClient({
-  ssrMode: true, // serverside rendering
+const apolloClient = new ApolloClient({
   networkInterface: createNetworkInterface({
-    uri: 'http://localhost:3001/graphql',
+    uri: '/graphql',
+    opts: {
+      // Additional fetch options like `credentials` or `headers`
+      // credentials: 'include',
+    },
   }),
+  queryDeduplication: true,
 });
 const muiTheme1 = getMuiTheme({
   userAgent: navigator.userAgent,
@@ -52,7 +56,7 @@ const context = {
   },
   // Send Material-UI theme through context
   muiTheme: muiTheme1,
-
+  //client: apolloClient,
 };
 
 
@@ -148,7 +152,7 @@ async function onLocationChange(location, action) {
 
     appInstance = ReactDOM.render(
       <App context={context}>
-        <ApolloProvider client={client}>
+        <ApolloProvider client={apolloClient}>
           {route.component}
         </ApolloProvider>
       </App>,
