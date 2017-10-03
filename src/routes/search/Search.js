@@ -1,43 +1,38 @@
 import React, { PropTypes } from 'react';
+import { gql, withApollo } from 'react-apollo';
+
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Search.css';
-import { gql, graphql, withApollo } from 'react-apollo';
 
-import { gql, graphql } from 'react-apollo';
-// import FlatButton from 'material-ui/FlatButton';
-// import TextField from 'material-ui/TextField';
 
-import s from './Search.css';
 import SearchBar from './SearchBar';
 import SearchResults from './SearchResults';
+
 
 // create the query to get the search results
 const searchQuery = gql`
   query(
     $Name: String
     $ID: String
-    $Hostel: String
-    $Room: String
-    $Branch: String
   ) {
     student(
-      Name: $Name
-      ID: $ID
-      Hostel: $Hostel
-      Room: $Room
-      Branch: $Branch
+      name: $Name
+      id: $ID
     ) {
       id
       name
-      hostel {
-        hostelName
-        hostelRoom
-      }
+      location
     }
   }
 `;
 
 class Search extends React.Component {
+
+  static propTypes = {
+    title: PropTypes.string.isRequired,
+    client: PropTypes.object.isRequired,
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -50,12 +45,10 @@ class Search extends React.Component {
       },
       results: null, // Populates the results of the query
     };
-    this.handleSearch = this.handleSearch.bind(this);
   }
 
   // gets the serach queries from SerachBar
   handleSearch(query, event) {
-
     event.preventDefault();
 
     this.setState({ query });
@@ -64,10 +57,9 @@ class Search extends React.Component {
     this.props.client.query({
       query: searchQuery,
       variables: query,
-    }).then((results)=>{
-      this.setState({ results })
+    }).then((results) => {
+      this.setState({ results });
     });
-
   }
 
   render() {
@@ -78,11 +70,12 @@ class Search extends React.Component {
             {this.props.title}
           </h1>
           {/* handleSearch() creates a Parent -> Child communication */}
-          <SearchBar onUserSearch={this.handleSearch} />
+          <SearchBar onUserSearch={this.handleSearch.bind(this)} />
           <br />
           {
-            this.state.results && 
-            (this.state.results.networkStatus==7 && <SearchResults results={this.state.results.data.student} />)
+            this.state.results &&
+            (this.state.results.networkStatus === 7 &&
+              <SearchResults results={this.state.results.data.student} />)
           }
         </div>
       </div>

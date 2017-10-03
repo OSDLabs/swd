@@ -9,7 +9,6 @@
 
 import {
   GraphQLObjectType as ObjectType,
-  GraphQLID as ID,
   GraphQLString as StringType,
   GraphQLNonNull as NonNull,
 } from 'graphql';
@@ -26,10 +25,9 @@ const studentType = new ObjectType({
   name: 'Student',
   fields: {
     id: { type: StringType },
-    bitsId: { type: new NonNull(ID) },
     name: { type: new NonNull(StringType) },
     gender: { type: StringType },
-    // hostel: { type: HostelType },
+    location: { type: StringType },
     admit: { type: StringType },
   },
 });

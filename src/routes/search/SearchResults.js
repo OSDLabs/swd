@@ -30,7 +30,7 @@ class SearchResults extends React.Component {
               <TableRow>
                 <TableHeaderColumn tooltip="ID">ID</TableHeaderColumn>
                 <TableHeaderColumn tooltip="Name">Name</TableHeaderColumn>
-                <TableHeaderColumn tooltip="Hostel">Hostel</TableHeaderColumn>
+                <TableHeaderColumn tooltip="Hostel">Location</TableHeaderColumn>
               </TableRow>
             </TableHeader>
             <TableBody
@@ -42,7 +42,7 @@ class SearchResults extends React.Component {
                 <TableRow key={row.id}>
                   <TableRowColumn>{row.id}</TableRowColumn>
                   <TableRowColumn>{row.name}</TableRowColumn>
-                  <TableRowColumn>{row.hostel.hostelName}{row.hostel.hostelRoom}</TableRowColumn>
+                  <TableRowColumn>{row.location}</TableRowColumn>
                 </TableRow>
                     ))}
             </TableBody>
@@ -50,9 +50,8 @@ class SearchResults extends React.Component {
         </div>
       );
     }
-    else {
-      return (<p>No Results</p>);
-    }
+
+    return (<p>No Results</p>);
   }
 
 }

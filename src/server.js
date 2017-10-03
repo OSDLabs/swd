@@ -121,7 +121,7 @@ app.get('*', async (req, res, next) => {
       // Sending Material-UI theme through context
       muiTheme,
       //send apollo client in the context
-      client: apolloClient,
+      //client: apolloClient,
     };
 
     const route = await router.resolve({
@@ -135,7 +135,7 @@ app.get('*', async (req, res, next) => {
     }
     const component = (
       <App context={context}>
-        <ApolloProvider client={client}>
+        <ApolloProvider client={apolloClient}>
           {route.component}
         </ApolloProvider>
       </App>

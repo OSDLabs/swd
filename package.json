@@ -157,7 +157,10 @@
       "react/prefer-stateless-function": "off",
       "camelcase": "warn",
       "func-names": "warn",
-      "react/forbid-prop-types": 0
+      "react/forbid-prop-types": 0,
+      "react/jsx-no-bind": [1, {
+        "allowBind": true
+      }]
     }
   },
   "stylelint": {

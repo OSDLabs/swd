@@ -21,21 +21,21 @@ const branches = [
   { value: 'B5', name: 'MSc Physics' },
 ];
 
+function getItems(values, keys = false) {
+        // returns Select field items acc to the values sent
+  return values.map(el => (
+    <MenuItem
+      key={keys ? el.name : el}
+      value={keys ? el.value : el}
+      primaryText={keys ? el.name : el}
+    />
+        ));
+}
+
 class SearchBar extends React.Component {
   static propTypes = {
         // fucntion to pass back queries to parent
     onUserSearch: PropTypes.func.isRequired,
-  }
-
-  static getItems(values, keys = false) {
-        // returns Select field items acc to the values sent
-    return values.map(el => (
-      <MenuItem
-        key={keys ? el.value : el}
-        value={keys ? el.name : el}
-        primaryText={keys ? el.name : el}
-      />
-        ));
   }
 
   constructor(props) {
@@ -47,11 +47,6 @@ class SearchBar extends React.Component {
       Branch: null,
       Hostel: null,
     };
-    this.setTextField = this.setTextField.bind(this, 'Name');
-    this.setTextField = this.setTextField.bind(this, 'ID');
-    this.setSelectField = this.setSelectField.bind(this, 'Hostel');
-    this.setTextField = this.setTextField.bind(this, 'Room');
-    this.setSelectField.bind(this, 'Branch');
   }
 
 
@@ -68,16 +63,7 @@ class SearchBar extends React.Component {
     this.setState(update);
   }
 
-  getItems(values, keys = false) {
-        // returns Select field items acc to the values sent
-    return values.map(el => (
-      <MenuItem
-        key={keys ? el.name : el}
-        value={keys ? el.value : el}
-        primaryText={keys ? el.name : el}
-      />
-        ));
-  }
+
   render() {
         // basic search form
         // TODO: Validation so that atleast one of the fields are no empty on submit
@@ -87,24 +73,24 @@ class SearchBar extends React.Component {
         <TextField
           floatingLabelText="Name"
           underlineStyle={{ display: 'none' }}
-          onChange={this.setTextField}
+          onChange={this.setTextField.bind(this, 'Name')}
         />
 
         <TextField
           floatingLabelText="ID No"
           underlineStyle={{ display: 'none' }}
-          onChange={this.setTextField}
+          onChange={this.setTextField.bind(this, 'ID')}
         />
 
         <br />
 
         <SelectField
-          onChange={this.setSelectField}
+          onChange={this.setSelectField.bind(this, 'Hostel')}
           floatingLabelText="Hostel"
           value={this.state.Hostel}
           autoWidth
         >
-          {this.getItems(hostels)}
+          {getItems(hostels)}
         </SelectField>
 
         <br />
@@ -112,18 +98,18 @@ class SearchBar extends React.Component {
         <TextField
           floatingLabelText="Room No"
           underlineStyle={{ display: 'none' }}
-          onChange={this.setTextField}
+          onChange={this.setTextField.bind(this, 'Room')}
         />
 
         <br />
 
         <SelectField
-          onChange={this.setSelectField}
+          onChange={this.setSelectField.bind(this, 'Branch')}
           floatingLabelText="Branch"
           value={this.state.Branch}
           autoWidth
         >
-          {this.getItems(branches, true)}
+          {getItems(branches, true)}
         </SelectField>
 
         <br />

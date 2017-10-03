@@ -36,7 +36,7 @@ const apolloClient = new ApolloClient({
     uri: '/graphql',
     opts: {
       // Additional fetch options like `credentials` or `headers`
-      //credentials: 'include',
+      // credentials: 'include',
     },
   }),
   queryDeduplication: true,
@@ -56,7 +56,7 @@ const context = {
   },
   // Send Material-UI theme through context
   muiTheme: muiTheme1,
-  client: apolloClient,
+  //client: apolloClient,
 };
 
 
@@ -151,8 +151,8 @@ async function onLocationChange(location, action) {
     }
 
     appInstance = ReactDOM.render(
-      <App context={context}> 
-        <ApolloProvider client={client}>
+      <App context={context}>
+        <ApolloProvider client={apolloClient}>
           {route.component}
         </ApolloProvider>
       </App>,
