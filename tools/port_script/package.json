@@ -1,0 +1,24 @@
+{
+  "name": "port_script",
+  "version": "0.0.1",
+  "description": "Port the swd database",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gist.github.com/3677845cf74d5018c7706701bb0a851c.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gist.github.com/3677845cf74d5018c7706701bb0a851c"
+  },
+  "homepage": "https://gist.github.com/3677845cf74d5018c7706701bb0a851c",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "mysql": "^2.14.1"
+  }
+}

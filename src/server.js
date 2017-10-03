@@ -119,7 +119,7 @@ app.get('*', async (req, res, next) => {
       },
       // Sending Material-UI theme through context
       muiTheme,
-      //send apollo client in the context
+      // send apollo client in the context
 
     };
 
