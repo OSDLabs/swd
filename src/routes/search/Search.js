@@ -62,21 +62,21 @@ Search.propTypes = {
 // create the query to get the search results
 const searchQuery = gql`
   query(
-    $Name: String
-    $ID: String
-    $Hostel: String
-    $Room: String
-    $Branch: String
+    $studentName: String
+    $bitsId: String
+    $hostel: String
+    $hostelRoom: String
+    $branch: String
   ) {
     student(
-      Name: $Name
-      ID: $ID
-      Hostel: $Hostel
-      Room: $Room
-      Branch: $Branch
+      studentName: $studentName
+      bitsId: $bitsId
+      hostel: $hostel
+      hostelRoom: $hostelRoom
+      branch: $branch
     ) {
-      id
-      name
+      bitsId
+      studentName
       hostel {
         hostelName
         hostelRoom
@@ -89,11 +89,11 @@ const searchQuery = gql`
 const SearchWithData = graphql(searchQuery, {
   options: {
     variables: {
-      Name: null,
-      ID: null,
-      Room: null,
-      Branch: null,
-      Hostel: null,
+      studentName: null,
+      bitsId: null,
+      hostelRoom: null,
+      branch: null,
+      hostel: null,
     },
   },
 })(Search);

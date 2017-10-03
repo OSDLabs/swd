@@ -26,7 +26,23 @@ class SearchBar extends React.Component {
     onUserSearch: PropTypes.func.isRequired,
   }
 
-  static getItems(values, keys = false) {
+  constructor(props) {
+    super(props);
+    this.state = {
+      studentName: null,
+      bitsId: null,
+      hostelRoom: null,
+      branch: null,
+      hostel: null,
+    };
+    this.setTextField = this.setTextField.bind(this, 'studentName');
+    this.setTextField = this.setTextField.bind(this, 'bitsId');
+    this.setSelectField = this.setSelectField.bind(this, 'hostel');
+    this.setTextField = this.setTextField.bind(this, 'hostelRoom');
+    this.setSelectField.bind(this, 'branch');
+  }
+
+  getItems(values, keys = false) {
         // returns Select field items acc to the values sent
     return values.map(el => (
       <MenuItem
@@ -36,23 +52,6 @@ class SearchBar extends React.Component {
       />
         ));
   }
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      Name: null,
-      ID: null,
-      Room: null,
-      Branch: null,
-      Hostel: null,
-    };
-    this.setTextField = this.setTextField.bind(this, 'Name');
-    this.setTextField = this.setTextField.bind(this, 'ID');
-    this.setSelectField = this.setSelectField.bind(this, 'Hostel');
-    this.setTextField = this.setTextField.bind(this, 'Room');
-    this.setSelectField.bind(this, 'Branch');
-  }
-
 
   setTextField(name, e, val) {
     const update = {};
