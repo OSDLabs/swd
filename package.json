@@ -26,7 +26,7 @@
     "graphql": "^0.10.3",
     "history": "^4.6.1",
     "isomorphic-style-loader": "^1.1.0",
-    "jsonwebtoken": "^7.3.0",
+    "jsonwebtoken": "^8.0.0",
     "material-ui": "^0.18.3",
     "mysql": "^2.13.0",
     "node-fetch": "^1.6.3",
@@ -41,9 +41,10 @@
     "react-tap-event-plugin": "^2.0.1",
     "sequelize": "^3.30.4",
     "source-map-support": "^0.4.14",
-    "sqlite3": "^3.1.8",
+    "sqlite3": "^4.0.0",
     "universal-router": "^3.0.0",
-    "whatwg-fetch": "^2.0.3"
+    "whatwg-fetch": "^2.0.3",
+    "snyk": "^1.83.0"
   },
   "devDependencies": {
     "assets-webpack-plugin": "^3.5.1",
@@ -212,6 +213,9 @@
     "deploy": "babel-node tools/run deploy",
     "render": "babel-node tools/run render",
     "serve": "babel-node tools/run runServer",
-    "start": "babel-node tools/run start"
-  }
+    "start": "babel-node tools/run start",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
+  },
+  "snyk": true
 }
