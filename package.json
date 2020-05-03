@@ -43,7 +43,8 @@
     "source-map-support": "^0.4.14",
     "sqlite3": "^3.1.8",
     "universal-router": "^3.0.0",
-    "whatwg-fetch": "^2.0.3"
+    "whatwg-fetch": "^2.0.3",
+    "snyk": "^1.316.2"
   },
   "devDependencies": {
     "assets-webpack-plugin": "^3.5.1",
@@ -212,6 +213,9 @@
     "deploy": "babel-node tools/run deploy",
     "render": "babel-node tools/run render",
     "serve": "babel-node tools/run runServer",
-    "start": "babel-node tools/run start"
-  }
+    "start": "babel-node tools/run start",
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
+  },
+  "snyk": true
 }
