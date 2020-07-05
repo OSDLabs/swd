@@ -21,7 +21,7 @@
     "core-js": "^2.4.1",
     "express": "^4.15.2",
     "express-graphql": "^0.6.4",
-    "express-jwt": "^5.1.0",
+    "express-jwt": "^6.0.0",
     "fastclick": "^1.0.6",
     "graphql": "^0.10.3",
     "history": "^4.6.1",
