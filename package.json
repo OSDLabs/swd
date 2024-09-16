@@ -15,11 +15,11 @@
   "dependencies": {
     "babel-polyfill": "^6.23.0",
     "bluebird": "^3.5.0",
-    "body-parser": "^1.17.1",
+    "body-parser": "^1.20.3",
     "classnames": "^2.2.5",
     "cookie-parser": "^1.4.3",
     "core-js": "^2.4.1",
-    "express": "^4.15.2",
+    "express": "^4.21.0",
     "express-graphql": "^0.6.4",
     "express-jwt": "^5.1.0",
     "fastclick": "^1.0.6",
