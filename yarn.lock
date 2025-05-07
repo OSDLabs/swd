@@ -6995,11 +6995,10 @@ uniqs@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/uniqs/-/uniqs-2.0.0.tgz#ffede4b36b25290696e6e165d4a59edb998e6b02"
 
-universal-router@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/universal-router/-/universal-router-3.0.0.tgz#f65f22ec284e4e44fb33f6c6070c8ca5fc7f46a3"
-  dependencies:
-    path-to-regexp "^1.7.0"
+universal-router@^10.0.0:
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/universal-router/-/universal-router-10.0.0.tgz#3570274b392ca6890a2af4a4693824aff70a371d"
+  integrity sha512-0PQtaTEr39V3zBVRdqrdGzZrV3cC0HWSa1t9BpQlh2ZKRQVJb6IablVWpIthvpyGDJNWfKhaX2bRPUhnrU/uVQ==
 
 unpipe@1.0.0, unpipe@~1.0.0:
   version "1.0.0"
